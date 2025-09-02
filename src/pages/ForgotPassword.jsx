@@ -77,6 +77,8 @@ export default function ForgotPassword() {
 
     <div className="main-background">
 
+    <GoHome />
+
     <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
 
       <div className="register-container">
@@ -94,6 +96,7 @@ export default function ForgotPassword() {
               <Button
                 type="primary"
                 className="login-btn"
+                just
                 onClick={handleEmailSubmit}
                 loading={loading}
                 block

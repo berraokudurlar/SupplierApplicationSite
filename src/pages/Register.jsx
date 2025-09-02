@@ -126,7 +126,7 @@ export default function Register() {
             {/* Company step fields */}
 
             <h3>
-              {t("registration.labels.first_name")}
+              İlk girişiniz olduğu için parola oluşturmanız gerekmektedir.
             </h3>
 
             <Form.Item label={t("registration.labels.new_password")} required>

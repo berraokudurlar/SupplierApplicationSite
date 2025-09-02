@@ -3,7 +3,7 @@
 @tailwind utilities;
                         
 
-:root { /* ✅ */
+:root { /* done */
   --font-sohogothic: 'SohoGothic', sans-serif;
   --turksat-main: #009BDA;
   --turksat-second: #53626F;
@@ -16,7 +16,7 @@
   --red: #D32F2F;
 }
 
-html, body {  /* ✅ */
+html, body {  /* done */
   height: 100%;
   margin: 0;
   padding: 0;
@@ -24,7 +24,7 @@ html, body {  /* ✅ */
   font-family: var(--font-sohogothic);
 }
 
-/* ---------------- Turksat Special Fonts ---------------- */  /* ✅ */
+/* ---------------- Turksat Special Fonts ---------------- */  /* done */
 
 /* Regular */
 @font-face {
@@ -68,7 +68,7 @@ html, body {  /* ✅ */
 
 /* ---------------- Shared Components ---------------- */
 
-.main-background {  /* ✅ */
+.main-background {  /* done */
   min-height: 100vh; 
   display: flex;
   justify-content: center;
@@ -76,7 +76,7 @@ html, body {  /* ✅ */
   font-family: var(--font-sohogothic);
 }
 
-.website-header {  /* ✅ */
+.website-header {  /* done */
   position: fixed; 
   top: 0;
   left: 0;
@@ -92,7 +92,7 @@ html, body {  /* ✅ */
   border-bottom-right-radius: 12px;
 }
 
-.website-header .left-icons a {  /* ✅ */
+.website-header .left-icons a {  /* done */
   color: var(--turksat-main);
   font-size: 1.8rem;
   display: flex;
@@ -101,19 +101,19 @@ html, body {  /* ✅ */
   align-items: center;
 }
 
-.center-logo .logo {
+.center-logo .logo { /* done */
   height: 30px; 
   object-fit: contain;
 }
 
-.website-header .right-buttons {  /* ✅ */
+.website-header .right-buttons {  /* done */
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 2rem;
 }
 
-p {
+p {  /* should be somewhere else */
   font-family: var(--font-sohogothic);
   font-weight: 400;
   color: var(--turksat-second);
@@ -130,22 +130,22 @@ p {
 .ant-form-item-sele,
 .ant-select-selector,
 .ant-btn,
-.ant-checkbox-wrapper {
+.ant-checkbox-wrapper { /* all the ant designs... should be somewhere else again. */
   font-family: var(--font-sohogothic);
 }
 
-.panel {
+.panel { /* ant */
   font-family: var(--font-sohogothic) !important;
 }
-
-.ant-form-item {
+ 
+.ant-form-item { /* ant */
   margin-bottom: 1.5rem;
   font-weight: 300px;
 }
 
 /* Language Button */
 
-.language-switcher {  /* ✅ */
+.language-switcher {  /* done */
   top: 1rem;
   right: 1rem;
   display: flex;
@@ -153,7 +153,7 @@ p {
   z-index: 10;
 }
 
-.language-switcher .ant-segmented {  /* ✅ */
+.language-switcher .ant-segmented { /* done */
   border: 1px solid var(--turksat-main) !important;
   border-radius: 6px;
   background: transparent;
@@ -161,26 +161,26 @@ p {
   transition: height 0.3s ease, min-width 0.3s ease, gap 0.3s ease;
 }
 
-.language-switcher .ant-segmented-item {  /* ✅ */
+.language-switcher .ant-segmented-item { /* done */
   color: var(--turksat-main) !important;
   font-weight: 500;
   font-family: var(--font-sohogothic);
   transition: all 0.2s ease-in-out;
 }
 
-.language-switcher .ant-segmented-item:hover {  /* ✅ */
+.language-switcher .ant-segmented-item:hover {  /* done */
   background-color: rgb(0, 133, 118, 0.6) !important;
   color: var(--white) !important;
 }
 
-.language-switcher .ant-segmented-item-selected {  /* ✅ */
+.language-switcher .ant-segmented-item-selected {  /* done */
   background-color: var(--turksat-main) !important;
   color: var(--white) !important;
 }
 
 /* Dark Mode Button */
 
-.dark-mode-button {  /* ✅ */
+.dark-mode-button {  /* done */
   display: flex;                 
   align-items: center;
   justify-content: center;
@@ -195,15 +195,15 @@ p {
   cursor: pointer;
 }
 
-.dark-mode-button:hover {
+.dark-mode-button:hover { /* done */
   background-color: rgb(0, 133, 118, 0.6)  !important;
   border: var(--turksat-second);
   color: var(--white) !important;
 }
 
-/* reCAPTCHA Container */
+/* reCAPTCHA Container */ /* could use work depending on where is it */
 
-.captcha-container {
+.captcha-container { 
   margin: 1.5rem 0;
   display: flex;
   justify-content: center;
@@ -217,7 +217,7 @@ p {
 
 /* Go Home Button */
 
-.go-home-btn {
+.go-home-btn { /* done */
   position: fixed;      
   bottom: 40px;            
   left: 40px;                  
@@ -225,7 +225,7 @@ p {
 }
 
 
-/* Steps */
+/* Steps */ /* there is a problem between Register.jsx and Verification.jsx requiring different types*/
 
 .steps .ant-steps-item.ant-steps-item-active .ant-steps-item-icon {
   background-color: var(--turksat-main) !important;
@@ -267,7 +267,7 @@ p {
 
 /* ---------------- MAIN SCREEN.JSX EXCLUSIVE ---------------- */
 
-.login-box {
+.login-box { /* done */
   margin-top: 120px;
   background: rgba(255, 255, 255, 0.8);
   padding: 3.5rem 2.5rem 2.5rem; 
@@ -281,7 +281,7 @@ p {
 }
 
 
-.logo-container {
+.logo-container { /* done */
   position: relative;          
   margin-bottom: 2rem;         
   border-radius: 12px;
@@ -289,18 +289,20 @@ p {
 }
 
 
-.logo { 
+.logo {  /* done */
   max-width: 420px;           
   height: auto;
 }
 
-.login-box h2 {  /* ✅ */
+.login-box h2 {  /* done..? can't this be generalized */
   font-family: var(--font-sohogothic);
   font-size: 2rem;
   color: var(--blue-dark);
   margin-bottom: 3rem;
   text-align: center;
 }
+
+/* messy area begin */
 
 .input-group .ant-input-affix-wrapper{
   margin-bottom: 1.2rem;
@@ -433,9 +435,13 @@ p {
   color: var(--turksat-second);
 }
 
+
+/* messy area end... */
+
 /* ---------------- REGISTER.JSX EXCLUSIVE ---------------- */
 
-.register-container {
+.register-container {   /* done */
+
   width: 90%;
   margin-top: 100px;
   max-width: 800px; 
@@ -447,7 +453,7 @@ p {
   justify-content: flex-start;
 }
 
-.register-container h2 {
+.register-container h2 { /* done..? */
   font-family: var(--font-sohogothic);
   font-size: 2rem;
   color: var(--blue-dark);
@@ -455,12 +461,13 @@ p {
   text-align: center;
 }
 
-.register-step-content {
+.register-step-content { /* done */
   margin-bottom: 2rem;
   font-family: var(--font-sohogothic);
   font-weight: 300px;
 }
 
+/* messy area begin  */
 .register-buttons {
   display: flex;
   justify-content: space-between;
@@ -498,6 +505,8 @@ p {
   border-color: var(--blue-dark) !important;
 }
 
+/* these are all ant */
+
 .register-container .ant-upload .ant-btn {
   background-color: var(--turksat-main) !important;
   color: var(--white) !important;
@@ -508,14 +517,14 @@ p {
   background-color: var(--blue-dark);
 }
 
-/* Checkbox */
+
 .register-container .ant-checkbox-wrapper {
   font-weight: 500;
   font-size: 0.95rem;
   color: var(--blue-dark);
 }
 
-/* reCAPTCHA spacing */
+/* this needs to be adjusted */
 .register-container .captcha-container {
   margin-top: 1.5rem;
   display: flex;
@@ -537,6 +546,9 @@ p {
   }
 }
 
+
+/* NOT GROUPED YET*/
+
 /* form.css */
 .ant-form-item {
   margin-bottom: 1.5rem; /* more breathing room between inputs */
@@ -552,4 +564,17 @@ p {
 /* Add padding so inputs don’t touch edges */
 .ant-form-item-control {
   padding-left: 0.5rem;
+}
+
+/* Adjust the class name based on what you find */
+.splitter-divider {
+  background-color:var(--turksat-main); /* color of the divider */
+  width: 4px;                /* thickness for vertical splitter */
+  border-radius: 2px;        /* rounded edges */
+  cursor: col-resize;        /* pointer when hovering */
+  transition: background 0.3s;
+}
+
+.splitter-divider:hover {
+  background-color: var(--turksat-green); /* hover effect */
 }

@@ -38,7 +38,7 @@ return (
               background: "transparent",
               padding: "2rem",
               paddingTop: "4rem",
-              paddingRight: "5rem",
+              paddingRight: "4.5rem",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -92,31 +92,30 @@ return (
 
                 <Form layout="vertical" onFinish={onFinish}>
                   <Form.Item
-                    label={
-                      <>
-                        {t("email")} <span className="required"> </span>
-                      </>
-                    }
                     name="email"
                     rules={[
                       { required: true, message: t("email_required") },
                       { type: "email", message: t("email_invalid") },
                     ]}
                   >
-                    <Input prefix={<MailOutlined />} placeholder={t("email_placeholder")} />
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                      <MailOutlined style={{ fontSize: "1.2rem", color: "#21578A" }} />
+                      <span style={{ color: "red" }}>*</span>
+                      <Input placeholder={t("email_placeholder")} style={{ flex: 1 }} />
+                    </div>
                   </Form.Item>
 
                   <Form.Item
-                    label={
-                      <>
-                        {t("password")} <span className="required"> </span>
-                      </>
-                    }
                     name="password"
                     rules={[{ required: true, message: t("password_required") }]}
                   >
-                    <Input.Password prefix={<LockOutlined />} placeholder={t("password_placeholder")} />
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                      <LockOutlined style={{ fontSize: "1.2rem", color: "#21578A" }} />
+                       <span style={{ color: "red" }}>*</span>
+                      <Input.Password placeholder={t("password_placeholder")} style={{ flex: 1 }} />
+                    </div>
                   </Form.Item>
+            
                                 
                   <div
                     className="login-row"

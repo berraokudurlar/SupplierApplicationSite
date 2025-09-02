@@ -50,6 +50,8 @@ export default function EmailVerification() {
   return (
     <div className="main-background">
 
+      <GoHome />
+
       <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
     
       <div className="register-container">
