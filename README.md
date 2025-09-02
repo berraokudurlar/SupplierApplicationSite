@@ -1,10 +1,8 @@
-Structure: 
-
 berr/
 ├─ public/
-│  └─ vite.svg    
+│  └─ vite.svg
 ├─ src/
-│  ├─ components/   
+│  ├─ components/
 │  │  ├─ CountryPicker.jsx
 │  │  ├─ GoHome.jsx
 │  │  ├─ Header.jsx
@@ -14,25 +12,26 @@ berr/
 │  ├─ locales/
 │  │  ├─ en.json
 │  │  └─ tr.json
-│  ├─ pages/            # Full pages or views
+│  ├─ pages/
 │  │  ├─ EmailVerification.jsx
 │  │  ├─ ForgotPassword.jsx
 │  │  ├─ MainMenu.jsx
 │  │  └─ Register.jsx
-│  ├─ App.jsx          
-│  ├─ Main.jsx        
-│  ├─ i18n.jsx              
-│  ├─  index.jsx
-│  └─ utils/           
-│     └─ api.js
+│  ├─ utils/
+│  │  └─ api.js
+│  ├─ App.jsx
+│  ├─ Main.jsx
+│  ├─ i18n.jsx
+│  └─ index.jsx
 ├─ .gitignore
 ├─ .eslint.config.js
-├─ .index.html
+├─ index.html
 ├─ package.json
 ├─ package-lock.json
 ├─ README.md
 ├─ tailwind.config.js
-└─ vite.config.js       
+└─ vite.config.js
+
 
 
 
