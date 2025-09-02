@@ -1,3 +1,43 @@
+berr/
+├─ public/
+│  └─ vite.svg
+├─ src/
+│  ├─ components/
+│  │  ├─ CountryPicker.jsx
+│  │  ├─ GoHome.jsx
+│  │  ├─ Header.jsx
+│  │  ├─ LanguageSwitchButton.jsx
+│  │  ├─ PhoneCodePicker.jsx
+│  │  └─ UploadFiles.jsx
+│  ├─ locales/
+│  │  ├─ en.json
+│  │  └─ tr.json
+│  ├─ pages/
+│  │  ├─ EmailVerification.jsx
+│  │  ├─ ForgotPassword.jsx
+│  │  ├─ MainMenu.jsx
+│  │  └─ Register.jsx
+│  ├─ utils/
+│  │  └─ api.js
+│  ├─ App.jsx
+│  ├─ Main.jsx
+│  ├─ i18n.jsx
+│  └─ index.jsx
+├─ .gitignore
+├─ .eslint.config.js
+├─ index.html
+├─ package.json
+├─ package-lock.json
+├─ README.md
+├─ tailwind.config.js
+└─ vite.config.js
+
+
+
+
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
