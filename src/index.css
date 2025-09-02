@@ -290,7 +290,7 @@ p {
 
 
 .logo { 
-  max-width: 400px;           
+  max-width: 420px;           
   height: auto;
 }
 
@@ -376,7 +376,14 @@ p {
   font-size: 1.1rem;
   cursor: pointer;
   width: 100%;
+  width: 200px !important;
   transition: background 0.2s ease-in-out;
+  justify-content: center;  
+  align-items: center;  
+}
+
+.register-btn {
+  width: 300px !important;
 }
 
 .login-btn:hover {
@@ -409,8 +416,13 @@ p {
   color: var(--turksat-second);
 }
 
+.login-section,
 .register-section {
-  margin-top: 1rem;
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
+  height: 100%;      
+  margin-top: 2rem;
 }
 
 .contact-info {
