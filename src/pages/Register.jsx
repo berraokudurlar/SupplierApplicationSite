@@ -324,11 +324,14 @@ export default function Register() {
 
           <Form 
           layout="horizontal"
-          labelCol={{ span: 4 }}
+          labelCol={{ span: 4.5 }}
           wrapperCol={{ span: 20 }}
           colon={false}
+          style={{marginRight: "3rem"}}
           
-          >{renderStepContent()}</Form>
+          >
+          
+          {renderStepContent()}</Form>
 
           <div className="register-buttons">
             <Button

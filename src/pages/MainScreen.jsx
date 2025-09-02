@@ -2,10 +2,18 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ReCAPTCHA from "react-google-recaptcha";
-import { Layout, Splitter, Form, Input, Button } from "antd";
+import { InputText } from "primereact/inputtext";
+import { Password } from "primereact/password";
+import { Button } from "primereact/button";
+import { Splitter, SplitterPanel } from "primereact/splitter";
 import turksatLogo from "../assets/photos/turksatlogo.png";
+
+import { MailOutlined, LockOutlined } from "@ant-design/icons";
 import Header from "../components/Header";
-import { LockOutlined, MailOutlined } from "@ant-design/icons";
+import "primereact/resources/primereact.min.css";
+import "primereact/resources/themes/saga-blue/theme.css";
+import "primeicons/primeicons.css";
+import "primeflex/primeflex.css";
 
 export default function MainScreen() {
   const { t } = useTranslation("", { keyPrefix: "main_screen" });
@@ -21,29 +29,117 @@ export default function MainScreen() {
     console.log("Form values:", values, "Captcha:", captchaValue);
   };
 
-return (
-  <div className="main-background">
-    <div className="login-box">
-      <Layout style={{ height: "100%", background: "transparent" }}>
+  return (
+    <div className="main-background">
+      <div className="login-box" style={{ height: "100%" }}>
         <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
 
-        <Splitter style={{ height: "100%" }}>
-          {/* Left Panel */}
-          <Splitter.Panel
+        <Splitter style={{ height: "100%", background: "transparent" }} stateStorage="local">
+
+           <SplitterPanel
+            style={{
+              background: "transparent",
+              padding: "2rem",
+              paddingRight: "4rem",
+              width: "550px",
+              minWidth: "550px",
+              maxWidth: "550px",
+            }}
+          >
+            <div
+              className="login-column"
+              style={{
+                width: "100%",
+                maxWidth: "400px",
+                margin: "0 auto",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "stretch",
+                background: "transparent",
+              }}
+            >
+              <h2>{t("login_title")}</h2>
+
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  onFinish({
+                    email: e.target.email.value,
+                    password: e.target.password.value,
+                  });
+                }}
+              >
+                {/* Email */}
+                <div className="group-input" style={{ marginBottom: "1rem", gap: "1rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                    <i className="pi pi-envelope" style={{ fontSize: "1.2rem", color: "#21578A" }} />
+                    <span style={{ color: "red" }}>*</span>
+                    <InputText name="email" placeholder={t("email_placeholder")} style={{ flex: 1 }} />
+                  </div>
+                </div>
+
+                {/* Password */}
+                <div className="group-input" style={{ marginBottom: "1rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                    <i className="pi pi-lock"  style={{ fontSize: "1.2rem", color: "#21578A" }} />
+                    <span style={{ color: "red" }}>*</span>
+                    <Password name="password" placeholder={t("password_placeholder")} style={{ flex: 1 }} feedback={false}/>
+                  </div>
+                </div>
+
+                {/* Login Row */}
+                <div
+                  className="login-row"
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    gap: "1rem",
+                    marginTop: "2rem",
+                  }}
+                >
+
+                    <Link to="/forgot-password" className="forgot-link">
+                    {t("forgot_password")}
+                  </Link>
+
+                  <Button type="submit" className="login-btn" label={t("login_btn")} />
+               
+                </div>
+
+                {/* CAPTCHA */}
+                <div className="captcha-container" style={{ marginTop: "1rem" }}>
+                  <ReCAPTCHA
+                    sitekey="6LcXl7ErAAAAAA03pTGms34aop_luxwYl7r0P_0M"
+                    onChange={(value) => setCaptchaValue(value)}
+                  />
+                </div>
+              </form>
+
+              {/* Register Section */}
+              <div className="register-section" style={{ marginTop: "2rem" }}>
+                <Link to="/register">
+                  <Button type="button" className="register-btn" label={t("become_supplier")} />
+                </Link>
+              </div>
+            </div>
+          </SplitterPanel>
+          
+          <SplitterPanel
+            size={200}
+            minSize={200}
+            maxSize={200}
             className="left-panel"
-            defaultSize={450}
-            min={450}
-            max={450}
             style={{
               background: "transparent",
               padding: "2rem",
               paddingTop: "4rem",
-              paddingRight: "4.5rem",
+              paddingRight: "1rem",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "flex-start",
-              gap: "3rem", 
+              gap: "3rem",
               boxSizing: "border-box",
               height: "100%",
               overflow: "hidden",
@@ -61,10 +157,7 @@ return (
 
             <div
               className="contact-info"
-              style={{
-                whiteSpace: "pre-line",
-                textAlign: "center",
-              }}
+              style={{ whiteSpace: "pre-line", textAlign: "center" }}
             >
               {t("contact_info")}
             </div>
@@ -74,92 +167,10 @@ return (
                 {t("faq")}
               </Link>
             </div>
-          </Splitter.Panel>
-
-          {/* Right Panel */}
-          <Splitter.Panel style={{ padding: "2rem" }}>
-            <Layout.Content
-              style={{
-                background: "transparent",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingTop: "1rem",
-              }}
-            >
-              <div className="login-column" style={{ width: "100%", maxWidth: "400px" }}>
-                <h2>{t("login_title")}</h2>
-
-                <Form layout="vertical" onFinish={onFinish}>
-                  <Form.Item
-                    name="email"
-                    rules={[
-                      { required: true, message: t("email_required") },
-                      { type: "email", message: t("email_invalid") },
-                    ]}
-                  >
-                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                      <MailOutlined style={{ fontSize: "1.2rem", color: "#21578A" }} />
-                      <span style={{ color: "red" }}>*</span>
-                      <Input placeholder={t("email_placeholder")} style={{ flex: 1 }} />
-                    </div>
-                  </Form.Item>
-
-                  <Form.Item
-                    name="password"
-                    rules={[{ required: true, message: t("password_required") }]}
-                  >
-                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                      <LockOutlined style={{ fontSize: "1.2rem", color: "#21578A" }} />
-                       <span style={{ color: "red" }}>*</span>
-                      <Input.Password placeholder={t("password_placeholder")} style={{ flex: 1 }} />
-                    </div>
-                  </Form.Item>
-            
-                                
-                  <div
-                    className="login-row"
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between", // button on left, link on right
-                      alignItems: "center",            // vertical alignment
-                      gap: "1rem",                      // spacing if needed
-                      marginTop: "1rem",                // spacing from elements above
-                    }}
-                  >
-                    <Button type="primary" htmlType="submit" className="login-btn">
-                      {t("login_btn")}
-                    </Button>
-
-                    <Link to="/forgot-password" className="forgot-link">
-                      {t("forgot_password")}
-                    </Link>
-                  </div>
-   
-                  <div className="captcha-container">
-                    <ReCAPTCHA
-                      sitekey="6LcXl7ErAAAAAA03pTGms34aop_luxwYl7r0P_0M"
-                      onChange={(value) => setCaptchaValue(value)}
-                    />
-                  </div>
-             
-              </Form>
+          </SplitterPanel>
          
-
-                <div className="register-section">
-                    <Link to="/register">
-                      <Button type="default" className="register-btn">
-                        {t("become_supplier")}
-                      </Button>
-                    </Link>
-                </div>
-             
-              </div>
-            </Layout.Content>
-          </Splitter.Panel>
         </Splitter>
-      </Layout>
+      </div>
     </div>
-  </div>
-);
+  );
 }

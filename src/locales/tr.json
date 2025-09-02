@@ -70,7 +70,7 @@
       "password_text": "İlk girişiniz olduğu için şifre oluşturmanız gerekmektedir. Oluşturacağınız parola ile giriş yaparak tüm başvuru aşamalarını takip edebilirsiniz. Bu parolayı yetkili kişiler harici kimse ile paylaşmayınız.",
       "password_requirements": "Oluşturacağınız parola en az 8 karakter olmak üzere 1 büyük harf, 1 küçük harf ve 1 sayıdan oluşmalıdır.",
       "authorized_person_warning": "Yetkili kişi olarak imza sirkülesi ve vekalette adı yer alan kişi bilgisini giriniz.",
-      "signature_instruction": "Şahıs şirketi iseniz İmza Sirküleri dokümanı olarak ''İmza Beyanı''nı yükleyiniz.",
+      "signature_instruction": "Şahıs şirketi iseniz İmza Sirküleri dokümanı olarak  ''İmza Beyanı''nı yükleyiniz.",
       "terms": "KVKK Bilgilendirme ve Gizlilik Sözleşmesini okudum, onaylıyorum.",
       "integrity": "Yukarıda verdiğim bilgilerin doğruluğunu beyan ederim."
     }

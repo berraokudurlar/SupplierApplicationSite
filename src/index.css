@@ -94,11 +94,16 @@ html, body {  /* done */
 
 .website-header .left-icons a {  /* done */
   color: var(--turksat-main);
-  font-size: 1.8rem;
+  font-size: 1.8;
   display: flex;
   flex-direction: row;
   gap: 1.5rem; 
   align-items: center;
+  text-decoration: none;
+}
+
+.left-icons a:hover {
+  color: rgb(0, 133, 118, 0.6);
 }
 
 .center-logo .logo { /* done */
@@ -197,7 +202,7 @@ p {  /* should be somewhere else */
 
 .dark-mode-button:hover { /* done */
   background-color: rgb(0, 133, 118, 0.6)  !important;
-  border: var(--turksat-second);
+  border: var(--turksat-second) !important;
   color: var(--white) !important;
 }
 
@@ -221,9 +226,18 @@ p {  /* should be somewhere else */
   position: fixed;      
   bottom: 40px;            
   left: 40px;                  
-  color: var(--turksat-green)
+  color: var(--turksat-second) !important;
+  background-color: var(--white) !important;
+  border-color: var(--turksat-second) !important;
+  border: 1px;
+  box-shadow: 0 0 4px rgb(0, 133, 118, 0.4) !important;
 }
 
+.go-home-btn:hover {
+  color: var(--white) !important;
+  background-color: var(--turksat-green, 0.4) !important;
+  border-color: var(--turksat-green) !important;
+}
 
 /* Steps */ /* there is a problem between Register.jsx and Verification.jsx requiring different types*/
 
@@ -275,7 +289,9 @@ p {  /* should be somewhere else */
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
   max-width: 1000px;          
   width: 90%;                  
-  min-height: 500px;           
+  height: 620px;           
+  min-height: 620px; 
+  max-height: 620px;
   text-align: left;            
   margin: 2rem auto;           
 }
@@ -290,7 +306,7 @@ p {  /* should be somewhere else */
 
 
 .logo {  /* done */
-  max-width: 420px;           
+  max-width: 300px;           
   height: auto;
 }
 
@@ -321,11 +337,11 @@ p {  /* should be somewhere else */
   font-family: var(--font-sohogothic);
   width: 100%;
   padding: 0.7rem;
-  border: 1px solid var(--turksat-main);
+  border: 0.8px solid var(--turksat-gray);
   border-radius: 8px; 
   outline: none;
-  font-size: 1rem;
-  background-color: var(--blue-lightest);
+  font-size: 0.8rem !important;
+  background-color: var(--white);
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
@@ -367,17 +383,47 @@ p {  /* should be somewhere else */
   margin-bottom: 1rem;
 }
 
+.group-input .p-inputtext {
+  font-family: var(--font-sohogothic);
+  width: 100%;
+  padding: 0.7rem;
+  border: 0.8px solid var(--turksat-gray);
+  border-radius: 8px; 
+  outline: none;
+  font-size: 1rem;
+  background-color: var(--white);
+  height: 35px !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.group-input .p-inputtext:focus {
+  border-color: var(--turksat-main) !important;
+  box-shadow: 0 0 4px rgb(0, 133, 118, 0.6) !important;
+}
+
+.p-password input:focus {
+  border-color: var(--turksat-main) !important;
+  box-shadow: 0 0 4px rgb(0, 133, 118, 0.6) !important;
+}
+
+.p-inputtext:hover,
+.p-password:hover {
+  border-color: var(--turksat-main) !important;
+}
+
+
 .register-btn,
 .login-btn {
   font-family: var(--font-sohogothic);
   background: var(--turksat-main) !important;
   color: var(--white) !important;
   padding: 0.8rem;
-  border: none;
-  border-radius: 8px;
+  border: 1px;
+  border-radius: 100px;
+  border-color: var(--blue-dark);
   font-size: 1.1rem;
   cursor: pointer;
-  width: 100%;
+  height: 35px;
   width: 200px !important;
   transition: background 0.2s ease-in-out;
   justify-content: center;  
@@ -399,9 +445,9 @@ p {  /* should be somewhere else */
 .forgot-link,
 .faq-link {
   font-family: var(--font-sohogothic) !important;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--turksat-main);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .faq-link {
@@ -431,7 +477,7 @@ p {  /* should be somewhere else */
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   font-family: var(--font-sohogothic) !important;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--turksat-second);
 }
 
@@ -507,17 +553,6 @@ p {  /* should be somewhere else */
 
 /* these are all ant */
 
-.register-container .ant-upload .ant-btn {
-  background-color: var(--turksat-main) !important;
-  color: var(--white) !important;
-  border-radius: 8px;
-}
-
-.register-container .ant-upload .ant-btn:hover {
-  background-color: var(--blue-dark);
-}
-
-
 .register-container .ant-checkbox-wrapper {
   font-weight: 500;
   font-size: 0.95rem;
@@ -566,15 +601,24 @@ p {  /* should be somewhere else */
   padding-left: 0.5rem;
 }
 
-/* Adjust the class name based on what you find */
-.splitter-divider {
-  background-color:var(--turksat-main); /* color of the divider */
-  width: 4px;                /* thickness for vertical splitter */
-  border-radius: 2px;        /* rounded edges */
-  cursor: col-resize;        /* pointer when hovering */
-  transition: background 0.3s;
+.p-splitter-panel {
+  background: transparent !important;
+  border: transparent;
 }
+
 
 .splitter-divider:hover {
   background-color: var(--turksat-green); /* hover effect */
+}
+
+.p-splitter-gutter {
+  background-color: rgb(0, 155, 218, 0.6) !important;
+  text-align: center;
+  justify-content: center;
+}
+
+.p-splitter-gutter-handle {
+  background-color: rgb(0, 155, 218, 0.6) !important;
+  text-align: center;
+  justify-content: center;
 }
