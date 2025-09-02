@@ -1,0 +1,103 @@
+{
+  "main_screen": {
+  "login_title": "Tedarikçi Girişi",
+  "email": "E-posta",
+  "email-invalid": "Geçersiz e-mail",
+  "password": "Şifre",
+  "email_placeholder": "E-postanızı girin",
+  "password_placeholder": "Şifrenizi girin",
+  "login_btn": "Giriş Yap",
+  "forgot_password": "Şifremi Unuttum",
+  "become_supplier": "Tedarikçi Ol",
+  "faq": "Sıkça Sorulan Sorular",
+  "contact_info": "Mevcut tedarikçilerimizin tys@turksat.com.tr adresinden mail ile kullanıcı adı ve parola talep etmeleri gerekmektedir.\n\nSon görüş ve önerileriniz için tys@turksat.com.tr adresine mail gönderebilirsiniz."
+  },
+
+  "recaptcha": {
+    "instruction": "Lütfen insan olduğunuzu doğrulamak için reCAPTCHA'yı tamamlayın.",
+    "error": "Devam etmek için reCAPTCHA doğrulaması gereklidir."
+  },
+
+  "file_submission": {
+    "submit_success": "Form başarıyla gönderildi.",
+    "submit_error": "Gönderim başarısız oldu. Lütfen tekrar deneyin."
+  },
+
+"registration": {
+    "title": "Tedarikçi Başvurusu",
+    "steps": {
+      "company": "Firma Bilgileri",
+      "authorized_person": "Yetkili Kişi Detayları",
+      "contact_info": "Firma İletişim Bilgileri",
+      "files": "Dosya Ekleri"
+    },
+    "labels": {
+      "new_password": "Yeni Şifre",
+      "new_password_again": "Yeni Şifre (Tekrar)",
+      "company_name": "Firma Adı",
+      "business_field": "Çalışma Alanı",
+      "company_type": "Şirket Türü",
+      "limited":"Limited",
+      "anonymous": "Anonim",
+      "sole":"Şahıs",
+      "taxId": "Vergi No",
+      "tax_office": "Vergi Dairesi",
+      "first_name": "Adı",
+      "last_name": "Soyadı",
+      "title": "Unvan",
+      "phone": "Telefon Numarası",
+      "email": "E-posta",
+      "country": "Ülke",
+      "province": "İl",
+      "address": "İletişim Adresi",
+      "district": "İlçe",
+      "corporate_mail": "Kurumsal E-posta",
+      "corporate_fax": "Faks",
+      "signature_circular": "İmza Sirküleri",
+      "power_of_attorney": "Vekalet"
+    },
+    "buttons": {
+      "back": "Geri",
+      "next": "İleri",
+      "submit": "Gönder",
+      "submitting": "Başvurunuz Gönderiliyor...",
+      "upload": "Dosya Yükle"
+    },
+
+    "information": {
+      "requirements": "Aşağıdaki tüm alanların doldurulması zorunludur.",
+      "create_password": "Şifre Oluşturma",
+      "password_text": "İlk girişiniz olduğu için şifre oluşturmanız gerekmektedir. Oluşturacağınız parola ile giriş yaparak tüm başvuru aşamalarını takip edebilirsiniz. Bu parolayı yetkili kişiler harici kimse ile paylaşmayınız.",
+      "password_requirements": "Oluşturacağınız parola en az 8 karakter olmak üzere 1 büyük harf, 1 küçük harf ve 1 sayıdan oluşmalıdır.",
+      "authorized_person_warning": "Yetkili kişi olarak imza sirkülesi ve vekalette adı yer alan kişi bilgisini giriniz.",
+      "signature_instruction": "Şahıs şirketi iseniz İmza Sirküleri dokümanı olarak ''İmza Beyanı''nı yükleyiniz.",
+      "terms": "KVKK Bilgilendirme ve Gizlilik Sözleşmesini okudum, onaylıyorum.",
+      "integrity": "Yukarıda verdiğim bilgilerin doğruluğunu beyan ederim."
+    }
+ 
+  },
+
+  "email_verification": {
+    "title": "E-postanızı Doğrulayın",
+    "enter_email": "E-postanızı girin",
+    "verify_code": "Kodunuzu doğrulayın",
+    "success": "Kayıt",
+    "send_verification_email": "Doğrulama e-postasını gönder"
+
+  },
+
+  "forgot_password": {
+    "title": "Şifremi Unuttum",
+    "send_verification_code": "Doğrulama kodu gönder",
+    "email": "E-posta",
+    "enter_verification_code_title": "Doğrulama kodunu girin",
+    "verification_code":"Doğrulama Kodu",
+    "back":"Geri",
+    "verify_code": "Kodu Doğrula",
+    "reset_password_title": "Şifre Sıfırlama",
+    "new_password": "Yeni Şifre",
+    "reset_password": "Şifreni sıfırla"
+  
+  }
+
+}

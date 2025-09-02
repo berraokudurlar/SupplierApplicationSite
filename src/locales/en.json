@@ -1,0 +1,107 @@
+{
+  "main_screen": {
+  "login_title": "Supplier Login",
+  "email": "E-mail",
+  "password": "Password",
+  "email-invalid": "Invaild e-mail",
+  "email_placeholder": "Enter your e-mail",
+  "password_placeholder": "Enter your password",
+  "login_btn": "Login",
+  "forgot_password": "Forgot Password",
+  "become_supplier": "Become a Supplier",
+  "faq": "Frequently Asked Questions",
+  "contact_info": "Our current suppliers must request username and password via email to tys@turksat.com.tr.\n\nFor final opinions and suggestions, you can also send an email to tys@turksat.com.tr."
+  },
+
+  "recaptcha": {
+      "instruction": "Please complete the reCAPTCHA to verify you are human.",
+      "error": "reCAPTCHA verification is required to continue."  
+  },
+
+  "file_submission": {
+    "submit_success": "Form submitted successfully.",
+    "submit_error": "Submission failed. Please try again."
+  },
+
+  "registration": {
+
+    "title": "Supplier Registration",
+
+    "steps": {
+      "company": "Company Info",
+      "authorized_person": "Authorized Person Details",
+      "contact_info": "Company Contact Info",
+      "files": "File Uploads"
+      
+    },
+
+    "labels": {
+      "new_password": "New Password",
+      "new_password_again": "Repeat Password",
+      "company_name": "Company Name",
+      "business_field": "Business Field",
+      "company_type": "Company Type",
+      "limited": "Limited",
+      "anonymous": "Anonymous",
+      "sole": "Sole proprietorship",
+      "taxId": "Tax ID",
+      "tax_office": "Tax Office",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "title": "Title",
+      "phone": "Phone Number",
+      "email": "Email",
+      "country": "Country",
+      "province": "Province",
+      "district": "District",
+      "address": "Communication Address",
+      "corporate_mail": "Corporate E-mail",
+      "corporate_fax": "Fax",
+      "signature_circular": "Signature Circular",
+      "power_of_attorney": "Power of Attorney"
+    },
+
+    "buttons": {
+      "back": "Back",
+      "next": "Next",
+      "submit": "Submit",
+      "submitting": "Submitting Your Application...",
+      "upload": "Upload File"
+   },
+
+    "information": {
+      "requirements": "All of the following fields must be filled in.",
+      "create_password": "Create Password",
+      "password_text": "Since this is your first login, you must create a password. You can follow all application steps by logging in with the password you create. Do not share this password with anyone other than authorized individuals.",
+      "password_requirements": "The password you create must be at least 8 characters long and include 1 uppercase letter, 1 lowercase letter, and 1 number.",
+      "authorized_person_warning": "As the authorized person, please enter the name of the person listed in the signature circular and power of attorney.",
+      "signature_instruction": "If you are a sole proprietorship, upload 'Signature Declaration' as your Signature Circular.",
+      "terms": "I have read and agree to the KVKK Information and Privacy Agreement.",
+      "integrity": "I hereby declare that the information provided is true and correct."
+    }
+
+  },
+
+  "email_verification": {
+    "title": "Verify Your E-mail",
+    "enter_email": "Enter e-mail",
+    "verify_code": "Verify code",
+    "success": "Register",
+    "send_verification_email": "Send verification e-mail"
+
+  },
+
+  "forgot_password": {
+    "title": "Forgot My Password",
+    "send_verification_code": "Send verification code",
+    "email": "E-mail",
+    "enter_verification_code_title": "Enter the verification code",
+    "verification_code":"Verification code was sent to your e-mail",
+    "back":"Back",
+    "verify_code": "Verify Code",
+    "reset_password_title": "Reset Password",
+    "new_password": "New Password",
+    "reset_password": "Reset your password"
+  }
+
+}
