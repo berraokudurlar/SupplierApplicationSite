@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ReCAPTCHA from "react-google-recaptcha";
+
 import { InputText } from "primereact/inputtext";
 import { Password } from "primereact/password";
 import { Button } from "primereact/button";
 import { Splitter, SplitterPanel } from "primereact/splitter";
-import turksatLogo from "../assets/photos/turksatlogo.png";
-
-import { MailOutlined, LockOutlined } from "@ant-design/icons";
-import Header from "../components/Header";
 import "primereact/resources/primereact.min.css";
 import "primereact/resources/themes/saga-blue/theme.css";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
+
+import Header from "../components/Header";
+import turksatLogo from "../assets/photos/turksatlogo.png";
+
 
 export default function MainScreen() {
   const { t } = useTranslation("", { keyPrefix: "main_screen" });
@@ -83,7 +84,11 @@ export default function MainScreen() {
                   <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                     <i className="pi pi-lock"  style={{ fontSize: "1.2rem", color: "#21578A" }} />
                     <span style={{ color: "red" }}>*</span>
-                    <Password name="password" placeholder={t("password_placeholder")} style={{ flex: 1 }} feedback={false}/>
+                    <Password name="password" 
+                    placeholder={t("password_placeholder")} 
+                    style={{ flex: 1 }} 
+                    toggleMask
+                    feedback={false}/>
                   </div>
                 </div>
 

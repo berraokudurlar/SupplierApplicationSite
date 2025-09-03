@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+                        
+
+
+/* NOT GROUPED YET*/
+
+/* form.css */
+.ant-form-item {
+  margin-bottom: 1.5rem; /* more breathing room between inputs */
+  gap: 1rem;
+}
+
+/* Makes labels left aligned */
+.ant-form-item-label {
+  text-align: left;
+  padding-right: 1rem;
+}
+
+/* Add padding so inputs don’t touch edges */
+.ant-form-item-control {
+  padding-left: 0.5rem;
+}
+
+
+
+.ant-pane
+.ant-checkbox-wrapper,
+.info-column,
+.login-column,
+.ant-layout-sider,
+.ant-form-item-label > label,
+.ant-form-item-control-input input,
+.ant-form-item-control-input textarea,
+.ant-form-item-sele,
+.ant-select-selector,
+.ant-btn,
+.ant-checkbox-wrapper { /* all the ant designs... should be somewhere else again. */
+  font-family: var(--font-sohogothic);
+}
+
+.panel { /* ant */
+  font-family: var(--font-sohogothic) !important;
+}
+ 
+.ant-form-item { /* ant */
+  margin-bottom: 1.5rem;
+  font-weight: 300px;
+}
+
+/* Steps */
+
+
+.p-steps {
+  margin-bottom: 1rem;
+}
+
+.p-steps .p-steps-item .p-menuitem-link {
+  background-color: transparent !important;
+}
+
+.p-steps .p-steps-number {
+  font-family: var(--font-sohogothic);
+  font-size: 0.95rem; 
+
+}
+
+.p-steps .p-steps-title {
+  color: var(--turksat-second) !important;
+  font-family: var(--font-sohogothic);
+  font-size: 0.95rem;
+  text-align: center;
+  line-height: 1.5;
+  white-space: normal;
+}
+
+.p-steps .p-steps-item.p-highlight .p-steps-number {
+  color: var(--white) !important;            
+  background-color: var(--turksat-main) !important;
+  border-color: var(--turksat-main) !important;
+}
+
+.p-steps .p-steps-item.p-highlight .p-steps-icon {
+  color: var(--white) !important;            
+  background-color: var(--turksat-main) !important;
+  border-color: var(--turksat-main) !important;
+}
+
+.p-steps .p-steps-item::before {
+  height: 2px !important;          
+  background-color: var(--turksat-second) !important;
+}
+
+.p-steps .p-steps-item.p-complete::before {
+  background-color: var(--blue-dark) !important;
+  height: 42x !important;
+}
+
+
+
+

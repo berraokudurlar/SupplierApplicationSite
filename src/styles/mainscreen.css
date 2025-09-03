@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+                        
+/* ---------------- MAIN SCREEN.JSX EXCLUSIVE ---------------- */
+
+.login-box { /* done */
+  margin-top: 120px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 3.5rem 2.5rem 2.5rem; 
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+  max-width: 1000px;          
+  width: 90%;                  
+  height: 620px;           
+  min-height: 620px; 
+  max-height: 620px;
+  text-align: left;            
+  margin: 2rem auto;           
+}
+
+.logo-container { /* done */
+  position: relative;          
+  margin-bottom: 2rem;         
+  border-radius: 12px;
+  text-align: center;           
+}
+
+.logo {  /* done */
+  max-width: 300px;           
+  height: auto;
+}
+
+/* ---------------- The e-mail and password inputs ---------------- */
+
+.input-group input[type="password"],
+.input-group input {
+  font-family: var(--font-sohogothic);
+  width: 300px !important;
+  padding: 0.7rem;
+  border: 0.8px solid var(--turksat-gray);
+  border-radius: 8px; 
+  outline: none;
+  font-size: 0.8rem !important;
+  background-color: var(--white);
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group .p-password {
+  width: 400px !important;
+}
+
+.input-group input[type="password"]:focus,
+.input-group input:focus {
+  border-color: var(--turksat-main) !important;
+  box-shadow: 0 0 4px rgb(0, 133, 118, 0.4) !important;
+}
+
+/* ---------------- Login and register buttons ---------------- */
+
+.register-btn,
+.login-btn {
+  font-family: var(--font-sohogothic);
+  background: var(--turksat-main) !important;
+  color: var(--white) !important;
+  padding: 0.8rem;
+  border: 1px;
+  border-radius: 100px;
+  border-color: var(--blue-dark);
+  font-size: 1.1rem;
+  cursor: pointer;
+  height: 35px;
+  width: 200px !important;
+  transition: background 0.2s ease-in-out;
+  justify-content: center;  
+  align-items: center;  
+}
+
+.register-btn {
+  width: 300px !important;
+}
+
+.register-btn:hover,
+.login-btn:hover {
+  background: var(--blue-dark) !important; 
+}
+
+/* This part affects their placement in the MainScreen.jsx class*/
+
+.login-section,
+.register-section {
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
+  height: 100%;      
+  margin-top: 2rem;
+}
+
+
+/* ---------------- Forgot Password and Frequently Asked Question Links ---------------- */
+
+.forgot-link,
+.faq-link {
+  font-family: var(--font-sohogothic) !important;
+  font-size: 0.85rem;
+  color: var(--turksat-main);
+  text-decoration: underline;
+}
+
+.faq-link {
+  margin-bottom: 10px;
+}
+
+.forgot-link:hover,
+.faq-link:hover {
+  text-decoration: underline;
+  color: var(--turksat-second);
+}
+
+.contact-info {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-sohogothic) !important;
+  font-size: 0.9rem;
+  color: var(--turksat-second);
+}
+
+/* ---------------- PRIMEREACT CONTROLS ---------------- */
+
+
+/* ---------------- The Splitter's .css ---------------- */
+
+.p-splitter-panel {
+  background: transparent !important;
+  border: transparent;
+}
+
+.splitter-divider:hover {
+  background-color: var(--turksat-green); /* hover effect */
+}
+
+.p-splitter-gutter {
+  background-color: rgb(0, 155, 218, 0.6) !important;
+  text-align: center;
+  justify-content: center;
+}
+
+.p-splitter-gutter-handle {
+  background-color: rgb(0, 155, 218, 0.6) !important;
+  text-align: center;
+  justify-content: center;
+}
+
+/* ---------------- The .groupinput .css ---------------- */
+
+.group-input .p-inputtext {
+  font-family: var(--font-sohogothic);
+  width: 100%;
+  padding: 0.7rem;
+  border: 0.8px solid var(--turksat-gray);
+  border-radius: 8px; 
+  outline: none;
+  font-size: 1rem;
+  background-color: var(--white);
+  height: 35px !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.group-input .p-inputtext:focus {
+  border-color: var(--turksat-main) !important;
+  box-shadow: 0 0 4px rgb(0, 133, 118, 0.6) !important;
+}
+
+.p-password input:focus {
+  border-color: var(--turksat-main) !important;
+  box-shadow: 0 0 4px rgb(0, 133, 118, 0.6) !important;
+}
+
+.p-inputtext:hover,
+.p-password:hover {
+  border-color: var(--turksat-main) !important;
+}
+

@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+                        
+
+.website-header {  /* done */
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.8); 
+  z-index: 1000;
+  padding: 1rem 1.5rem; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.website-header .left-icons a {  /* done */
+  color: var(--turksat-main);
+  font-size: 1.8;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem; 
+  align-items: center;
+  text-decoration: none;
+}
+
+.left-icons a:hover {
+  color: rgb(0, 133, 118, 0.6);
+}
+
+.center-logo .logo { /* done */
+  height: 30px; 
+  object-fit: contain;
+}
+
+.website-header .right-buttons {  /* done */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}

@@ -1,133 +1,123 @@
 import React, { useState } from "react";
-import { Form, Input, Button, message, Steps } from "antd";
-import { LoadingOutlined, SmileOutlined, SolutionOutlined, UserOutlined } from '@ant-design/icons';
 import ReCAPTCHA from "react-google-recaptcha";
 import { useTranslation } from "react-i18next";
+
+import { InputText } from "primereact/inputtext";
+import { Button } from "primereact/button";
+import { Steps } from "primereact/steps";
+
 import Header from "../components/Header";
 import GoHome from "../components/GoHome";
 
-const { Step } = Steps;
+import "primeicons/primeicons.css";
 
 export default function EmailVerification() {
-  const { t, i18n } = useTranslation("", { keyPrefix: "email_verification" });
-  const [currentStep, setCurrentStep] = useState(0);
+  const { t } = useTranslation("", { keyPrefix: "email_verification" });
+
+  const [step, setStep] = useState(0);
   const [email, setEmail] = useState("");
-  const [captchaValue, setCaptchaValue] = useState(null);
   const [verificationCode, setVerificationCode] = useState("");
+  const [captchaValue, setCaptchaValue] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const toggleDarkMode = () => setIsDarkMode(prev => !prev);
 
-  const handleCaptchaChange = (value) => setCaptchaValue(value);
+  const itemRenderer = (item, itemIndex) => {
+    const isActive = step === itemIndex;
+    const isComplete = step > itemIndex;
 
-  const sendVerificationEmail = () => {
-    if (!captchaValue) {
-      message.error(t("please_verify_captcha"));
+    const backgroundColor = isActive || isComplete ? 'var(--primary-color)' : 'var(--surface-b)';
+    const textColor = isActive || isComplete ? 'var(--surface-b)' : 'var(--text-color-secondary)';
+
+    return (
+      <span
+        className="inline-flex align-items-center justify-content-center border-circle border-primary border-1 h-3rem w-3rem z-1 cursor-pointer"
+        style={{ backgroundColor, color: textColor, marginTop: '-25px' }}
+        onClick={() => setStep(itemIndex)}
+      >
+        <i className={`${item.icon} text-xl`} />
+      </span>
+    );
+  };
+
+  const items = [
+    { icon: 'pi pi-user', template: (item) => itemRenderer(item, 0) },
+    { icon: 'pi pi-spinner-dotted', template: (item) => itemRenderer(item, 1) },
+    { icon: 'pi pi-verified', template: (item) => itemRenderer(item, 2) }
+  ];
+
+  const sendVerificationEmail = async () => {
+    if (!email) {
+      alert(t("email") + " is required");
       return;
     }
-    if (!email) {
-      message.error(t("email_required"));
+    if (!captchaValue) {
+      alert("Please verify CAPTCHA");
       return;
     }
 
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      message.success(t("verification_email_sent"));
-      setCurrentStep(1);
-    }, 1500);
+    await new Promise((res) => setTimeout(res, 1000));
+    setLoading(false);
+    alert("Verification email sent");
+    setStep(1);
   };
 
-  const verifyCode = () => {
-    if (verificationCode === "123456") { // Replace with real API check
-      message.success(t("email_verified"));
-      setCurrentStep(2);
-    } else {
-      message.error(t("invalid_code"));
+  const verifyCode = async () => {
+    if (!verificationCode) {
+      alert("Verification code required");
+      return;
     }
+
+    setLoading(true);
+    await new Promise((res) => setTimeout(res, 1000));
+    setLoading(false);
+    setStep(2);
   };
 
   return (
     <div className="main-background">
-
       <GoHome />
+      <Header isDarkMode={false} toggleDarkMode={() => {}} />
 
-      <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
-    
-      <div className="register-container">
-        <h2>{t("title")}</h2>
-        <Steps current={currentStep} className="steps">
-          <Step title={t("enter_email")} icon={<UserOutlined />}  />
-          <Step title={t("verify_code")} icons={(<SolutionOutlined />)} />
-          <Step title={t("success")} icons={(<SmileOutlined />)}/>
-        </Steps>
+      <div className="ev-box">
+        <div className="ev-h2">
+          <h2>{t("title")}</h2>
+        </div>
+       
+        <Steps model={items} activeIndex={step} readOnly={true} className="p-steps" />
 
-        <div className="register-step-content">
-          {currentStep === 0 && (
-            <Form layout="vertical">
-              <Form.Item label={t("email")} required>
-                <Input
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="input-group"
-                />
-              </Form.Item>
-
-              
+        <div className="ev-step-content">
+          {step === 0 && (
+            <>
+              <div className="ev-input-row">
+                <label>{t("email")}</label>
+                <InputText value={email} onChange={(e) => setEmail(e.target.value)} />
+              </div>
               <div className="captcha-container">
-                <ReCAPTCHA
-                  sitekey="YOUR_RECAPTCHA_SITE_KEY"
-                  onChange={handleCaptchaChange}
-                />
+                <ReCAPTCHA sitekey="YOUR_SITE_KEY" onChange={(v) => setCaptchaValue(v)} />
               </div>
-              
-              <Button
-                type="primary"
-                className="register-next-btn"
-                onClick={sendVerificationEmail}
-                loading={loading}
-              >
-                {t("send_verification_email")}
-              </Button>
-            </Form>
+              <div className="ev-button-row">
+                <Button label={t("send_verification_email")} className="ev-next-btn" loading={loading} onClick={sendVerificationEmail} />
+              </div>
+            </>
           )}
 
-          {currentStep === 1 && (
-            <Form layout="vertical">
-              <Form.Item label={t("verification_code")} required>
-                <Input
-                  value={verificationCode}
-                  onChange={(e) => setVerificationCode(e.target.value)}
-                  className="input-group"
-                />
-              </Form.Item>
-              <div className="register-buttons">
-                <Button
-                  className="register-back-btn"
-                  onClick={() => setCurrentStep(0)}
-                >
-                  {t("back")}
-                </Button>
-                <Button
-                  className="register-next-btn"
-                  onClick={verifyCode}
-                >
-                  {t("verify")}
-                </Button>
+          {step === 1 && (
+            <>
+              <div className="ev-input-row">
+                <label>{t("verification_code")}</label>
+                <InputText value={verificationCode} onChange={(e) => setVerificationCode(e.target.value)} placeholder="123456" />
               </div>
-            </Form>
+              <div className="ev-button-row">
+                <Button label={t("back")} className="ev-back-btn" onClick={() => setStep(0)} />
+                <Button label={t("verify")} className="ev-next-btn" onClick={verifyCode} />
+              </div>
+            </>
           )}
 
-          {currentStep === 2 && (
-            <div style={{ textAlign: "center", marginTop: "2rem" }}>
+          {step === 2 && (
+            <div className="ev-success">
               <h3>{t("verification_success")}</h3>
-              <Button
-                type="primary"
-                className="register-next-btn"
-                onClick={() => window.location.href = "/login"}
-              >
-                {t("proceed_to_login")}
-              </Button>
+              <Button label={t("proceed_to_login")} className="ev-next-btn" onClick={() => (window.location.href = "/")} />
             </div>
           )}
         </div>

@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+                        
+/* ---------------- REGISTER.JSX EXCLUSIVE ---------------- */
+
+.register-container {   
+
+  margin-top: 100px;
+  width:800px;
+  min-width:800px;
+  max-width: 800px; 
+  min-height: 700px; 
+  max-height: 800px; 
+  margin: 100px auto 0 auto;
+  padding: 3rem;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.8);
+  text-align: left;
+  justify-content: flex-start;
+}
+
+.register-container h2 { 
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.register-step-content { 
+  margin-bottom: 2rem;
+  font-family: var(--font-sohogothic);
+}
+
+.register-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.register-buttons button {
+
+  height: 40px;  
+  min-width: 100px;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-top: 0.3rem;
+}
+
+.register-back-btn,
+.register-next-btn {
+  font-family: var(--font-sohogothic);
+  background-color: var(--turksat-main);
+  color: var(--white);
+  border: 2px solid var(--turksat-main);
+}
+
+.register-back-btn:hover,
+.register-next-btn:hover {
+  background-color: var(--blue-dark) !important;
+  color: var(--white) !important;
+  border-color: var(--blue-dark) !important;
+}
+
+.form-row {
+  display: flex;
+  align-items: left;
+  margin-bottom: 1rem;
+}
+
+.form-row label {
+  width: 200px;  /* fixed label width */
+  font-weight: 500;
+  font-size: 0.9rem !important;
+  margin-right: 1rem;
+  text-align: left;
+}
+
+.form-row .p-inputtext,
+.form-row .p-password,
+.form-row .p-dropdown,
+.form-row .p-checkbox,
+.form-row .p-inputnumber {
+  flex: 1;  
+  border-radius: 8px;
+  font-size: 0.9rem !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-row p.input:focus,
+.form-row .p-inputtext:focus,
+.form-row .p-password:focus,
+.form-row .p-dropdown:focus,
+.form-row .p-checkbox:focus,
+.form-row .p-inputnumber:focus {
+  border-color: var(--turksat-main) !important;
+  box-shadow: 0 0 4px rgb(0, 133, 118, 0.4) !important;
+}
+
+.select-input {
+  flex: 1;  
+  border-radius: 8px;
+  font-size: 0.9rem !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.select-input:focus {
+  border-color: var(--turksat-main) !important;
+  box-shadow: 0 0 4px rgb(0, 133, 118, 0.4) !important;
+}
+
+.password-wrapper {
+  flex: 1;             /* take available space */
+  min-width: 0;        /* important for flex items */
+}
+
+/* Required asterisk */
+.form-row label .required {
+  color: red;           /* classic red for required */   /* make it stand out */
+  margin-left: 0.1rem;  /* small spacing from label text */
+  font-size: 1rem;      /* match label font size */
+}
+
+/* For mobile devices */
+
+@media (max-width: 750px) {
+  .register-container {
+    padding: 2rem;
+  }
+
+  .register-buttons {
+    flex-direction: column;
+  }
+
+  .register-buttons button {
+    width: 100%;
+  }
+}
