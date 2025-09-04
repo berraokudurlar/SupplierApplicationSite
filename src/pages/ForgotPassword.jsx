@@ -38,11 +38,11 @@ export default function ForgotPassword() {
     setLoading(true);
     try {
       await new Promise((res) => setTimeout(res, 1000));
-      showToast("success", t("verification_code"), t("sent"));
+      showToast("success", t("verification_code"));
       handleNextStep();
     } catch (err) {
       console.error(err);
-      showToast("error", t("verification_code"), t("send_error"));
+      showToast("error", t("send_error"));
     } finally {
       setLoading(false);
     }

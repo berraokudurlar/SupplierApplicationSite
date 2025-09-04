@@ -83,6 +83,13 @@ p {  /* should be somewhere else */
   color: var(--turksat-second);
 }
 
+h3 {  /* done */
+  font-family: var(--font-sohogothic);
+  color: var(--turksat-second);
+  margin-top: 3rem;
+  text-align: center;
+}
+
 /* ---------------- Shared Components ---------------- */
 
 .main-background {  /* done */

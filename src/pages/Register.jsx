@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -25,6 +26,22 @@ export default function Register() {
   const toast = useRef(null);
 
   const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
+  const navigate = useNavigate();
+
+  const isPasswordValid = (password) => {
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+  return regex.test(password);
+  };
+
+  const isPhoneValid = (phone) => {
+  const digits = phone.replace(/\D/g, "");
+  return digits.length >= 7 && digits.length <= 15; 
+  };
+
+  const isEmailValid = (email) => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+  };
 
   const [form, setForm] = useState({
     newPassword: "",
@@ -68,8 +85,9 @@ export default function Register() {
     switch (steps[stepIndex].key) {
       case "company":
         return (
-          form.newPassword &&
-          form.repeatPassword &&
+           form.newPassword &&
+          isPasswordValid(form.newPassword) &&
+          form.newPassword === form.repeatPassword &&
           form.companyName.trim() &&
           form.companyType &&
           form.taxId.trim() &&
@@ -87,8 +105,8 @@ export default function Register() {
         return (
           form.firstName.trim() &&
           form.lastName.trim() &&
-          form.email.trim() &&
-          (form.phone || "").replace(/\D/g, "").length >= 7
+          isEmailValid(form.email) &&
+          isPhoneValid(form.phone)
         );
       case "files":
         return (
@@ -113,10 +131,8 @@ const handleSubmit = async () => {
   try {
     const formData = new FormData();
 
-    // Append all fields individually except files
     for (const key in form) {
       if (form[key] !== null && key !== "signatureFile" && key !== "poaFile") {
-        // Convert booleans to strings to ensure Spring interprets them correctly
         if (typeof form[key] === "boolean") {
           formData.append(key, form[key].toString());
         } else {
@@ -125,7 +141,6 @@ const handleSubmit = async () => {
       }
     }
 
-    // Append files separately
     if (form.signatureFile) formData.append("signatureFile", form.signatureFile);
     if (form.poaFile) formData.append("poaFile", form.poaFile);
 
@@ -148,6 +163,11 @@ const handleSubmit = async () => {
         summary: t("registration.messages.submit_success"),
         life: 5000
       });
+
+      // Optional: wait a moment for the toast to be visible
+      setTimeout(() => {
+        navigate("/"); // <-- redirect to main menu
+      }, 1500); 
 
       // Reset form
       setForm({
@@ -176,7 +196,6 @@ const handleSubmit = async () => {
         captchaValue: null,
       });
 
-      setStepIndex(0);
     }
   } catch (err) {
     console.error(err);
@@ -195,7 +214,13 @@ const handleSubmit = async () => {
     case "company":
       return (
         <>
-          <p>İlk girişiniz olduğu için parola oluşturmanız gerekmektedir.</p>
+         <p style={{ fontSize: "14px" }}>
+            {t("registration.information.password_text")} 
+         </p>
+
+        <p style={{ fontSize: "14px" }}>
+            {t("registration.information.password_requirements")} 
+        </p>
 
           <div className="form-row">
             <label>
@@ -394,7 +419,11 @@ const handleSubmit = async () => {
     case "files":
       return (
         <>
-          <p>{t("registration.information.signature_instruction")}</p>
+          <p style={{ fontSize: "14px" }}>
+            {t("registration.information.authorized_person_warning")}</p>
+
+          <p style={{ fontSize: "14px" }}>
+            {t("registration.information.signature_instruction")}</p>
 
           <div className="form-row">
             <label>
@@ -444,7 +473,6 @@ const handleSubmit = async () => {
 
 
           <div className="captcha-container">
-            <p>{t("recaptcha.instruction")}</p>
             <ReCAPTCHA
               sitekey="6LcXl7ErAAAAAA03pTGms34aop_luxwYl7r0P_0M"
               onChange={(v) => update({ captchaValue: v })}

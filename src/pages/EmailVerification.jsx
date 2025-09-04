@@ -1,6 +1,9 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useTranslation } from "react-i18next";
+
+
 
 import { Toast } from 'primereact/toast';
 import { InputText } from "primereact/inputtext";
@@ -15,6 +18,7 @@ import "primeicons/primeicons.css";
 
 export default function EmailVerification() {
   const { t } = useTranslation("", { keyPrefix: "email_verification" });
+  const navigate = useNavigate();
 
   const [step, setStep] = useState(0);
   const [email, setEmail] = useState("");
@@ -58,7 +62,7 @@ export default function EmailVerification() {
       return;
     }
     if (!captchaValue) {
-      showToast("warn", t("captcha"), t("captcha_not_done"));
+      showToast("warn", t("captcha_not_done"));
       return;
     }
 
@@ -77,22 +81,32 @@ export default function EmailVerification() {
 
   const verifyCode = async () => {
     if (!verificationCode) {
-      showToast("warn", t("verification_code"), t("code_required"));
+      showToast("warn", t("code_required"));
       return;
     }
 
     setLoading(true);
     try {
       await new Promise((res) => setTimeout(res, 1000));
-      showToast("success", t("verification_code"), t("verified"));
+      showToast("success", t("verified"));
       setStep(2);
     } catch (err) {
       console.error(err);
-      showToast("error", t("verification_code"), t("verify_error"));
+      showToast("error", t("verify_error"));
     } finally {
       setLoading(false);
     }
   };
+
+  React.useEffect(() => {
+  if (step === 2) {
+    const timer = setTimeout(() => {
+      navigate("/"); // change "/" to your main menu route
+    }, 2000); // 2 seconds delay to show success message
+
+    return () => clearTimeout(timer); // cleanup if component unmounts
+  }
+}, [step, navigate]);
 
   return (
     <div className="main-background">
@@ -108,7 +122,7 @@ export default function EmailVerification() {
           <h2>{t("title")}</h2>
         </div>
        
-        <Steps model={items} activeIndex={step} readOnly={true} className="p-steps" />
+        <Steps model={items} activeIndex={step} readOnly={false} className="p-steps" />
 
         <div className="ev-step-content">
           {step === 0 && (
@@ -142,7 +156,6 @@ export default function EmailVerification() {
           {step === 2 && (
             <div className="ev-success">
               <h3>{t("verification_success")}</h3>
-              <Button label={t("proceed_to_login")} className="ev-next-btn" onClick={() => (window.location.href = "/")} />
             </div>
           )}
         </div>

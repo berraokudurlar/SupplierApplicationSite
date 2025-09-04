@@ -21,12 +21,14 @@
 
 "registration": {
     "title": "Tedarikçi Başvurusu",
+
     "steps": {
       "company": "Firma Bilgileri",
       "authorized_person": "Yetkili Kişi Detayları",
       "contact_info": "Firma İletişim Bilgileri",
       "files": "Dosya Ekleri"
     },
+
     "labels": {
       "new_password": "Yeni Şifre",
       "new_password_again": "Yeni Şifre (Tekrar)",
@@ -56,9 +58,13 @@
       "back": "Geri",
       "next": "İleri",
       "submit": "Gönder",
-      "submitting": "Başvurunuz Gönderiliyor...",
-      "upload": "Dosya Yükle"
+      "submitting": "Başvurunuz Gönderiliyor..."
     },
+
+    "messages": {
+      "submit_error":"Form teslimi sırasında bir hata gerçekleşti. Lütfen daha sonra tekrar deneyiniz.",
+      "submit_success": "Kayıt başvurunuz alınmıştır."
+   },
 
     "information": {
       "requirements": "Aşağıdaki tüm alanların doldurulması zorunludur.",
@@ -75,25 +81,39 @@
 
   "email_verification": {
     "title": "E-postanızı Doğrulayın",
-    "enter_email": "E-postanızı girin",
+    "email": "E-posta",
+    "email_required": "Devam etmek için e-postanızı giriniz.",
+    "code_required": "Lütfen devam etmek için doğrulama kodunu girin.",
     "verify_code": "Kodunuzu doğrulayın",
+    "verification_code":"Doğrulama kodu",
+    "verify": "Kodu Doğrula",
     "success": "Kayıt",
-    "send_verification_email": "Doğrulama e-postasını gönder","missing_email_password": "Lütfen e-posta ve şifre alanlarını doldurunuz.",
-    "captcha_not_done": "Lütfen reCAPTCHA'yı tamamlayarak robot olmadığınızı kanıtlayınız."
-    
+    "send_verification_email": "Doğrulama e-postasını gönder",
+    "missing_email_password": "Lütfen e-posta ve şifre alanlarını doldurunuz.",
+    "captcha_not_done": "Lütfen reCAPTCHA'yı tamamlayarak robot olmadığınızı kanıtlayınız.",
+    "back":"Back",
+    "verification_success": "E-posta doğrulama başarılı. Ana sayfaya yönderiliyorsunuz..."
   },
 
   "forgot_password": {
     "title": "Şifremi Unuttum",
     "send_verification_code": "Doğrulama kodu gönder",
     "email": "E-posta",
-    "enter_verification_code_title": "Doğrulama kodunu girin",
-    "verification_code":"Doğrulama Kodu",
+    "enter_email_text": "Lütfen aşağıdaki alana e-postanızı giriniz.",
+    "email_required": "Devam etmek için e-postanızı giriniz.",
+    "enter_verification_code_title": "E-posta adresinize bir doğrulama kodu gönderdik.",
+    "verification_code":"Doğrulama kodu",
+    "verification_code_success":"Gönderme işlemi başarılı.",
+    "code_required": "Lütfen devam etmek için doğrulama kodunu girin.",
     "back":"Geri",
     "verify_code": "Kodu Doğrula",
     "reset_password_title": "Şifre Sıfırlama",
-    "new_password": "Yeni Şifre",
-    "reset_password": "Şifreni sıfırla"
+    "reset_password": "Şifreni Sıfırla",
+    "new_password": "Yeni şifre",
+    "repeat_password": "Yeni şifre (tekrar)",
+    "password_required": "Lütfen devam etmek için yeni şifrenizi girin.",
+    "captcha_not_done": "Lütfen reCAPTCHA'yı tamamlayarak robot olmadığınızı kanıtlayınız."
+    
   
   },
     "upload_file": "Dosya yükle"

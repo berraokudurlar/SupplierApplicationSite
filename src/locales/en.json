@@ -61,9 +61,14 @@
       "back": "Back",
       "next": "Next",
       "submit": "Submit",
-      "submitting": "Submitting Your Application...",
-      "upload": "Upload File"
+      "submitting": "Submitting Your Application..."
    },
+
+   "messages": {
+      "submit_error":"There was an error with your submission. Please try again later.",
+      "submit_success": "Your register application was submitted."
+   },
+
 
     "information": {
       "requirements": "All of the following fields must be filled in.",
@@ -80,25 +85,38 @@
 
   "email_verification": {
     "title": "Verify Your E-mail",
-    "enter_email": "Enter e-mail",
+    "email": "E-mail",
+    "email_required": "Please enter your e-mail to continue.",
+    "code_required": "Please enter the verification code to proceed.",
     "verify_code": "Verify code",
+    "verification_code":"Verification code",
+    "verify_code_text": "Please write the verification code sent to your e-mail down below:",
     "success": "Register",
     "send_verification_email": "Send verification e-mail",
     "missing_email_password": "Please fill out both the e-mail and password sections.",
-    "captcha_not_done": "Please complete the reCAPTCHA to prove that you are not a robot."
+    "captcha_not_done": "Please complete the reCAPTCHA to prove that you are not a robot.",
+    "back":"Back",
+    "verification_success": "E-mail verification successful. Redirected to the login page..."
   },
 
   "forgot_password": {
     "title": "Forgot My Password",
     "send_verification_code": "Send verification code",
     "email": "E-mail",
+    "enter_email_text": "Please enter your e-mail.",
     "enter_verification_code_title": "Enter the verification code",
-    "verification_code":"Verification code was sent to your e-mail",
+    "verification_code":"Verification code was sent to your e-mail.",
+    "code_required": "Please enter the verification code to proceed.",
     "back":"Back",
     "verify_code": "Verify Code",
     "reset_password_title": "Reset Password",
-    "new_password": "New Password",
-    "reset_password": "Reset your password"
+    "reset_password": "Reset Password",
+    "verify": "Verify",
+    "new_password": "New password",
+    "repeat_password": "Repeat new password",
+    "password_required": "Please enter your new password to proceed.",
+    "captcha_not_done": "Please complete the reCAPTCHA to prove that you are not a robot."
+ 
   },
     "upload_file": "Upload file"
 }
