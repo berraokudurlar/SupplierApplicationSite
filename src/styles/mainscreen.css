@@ -65,9 +65,9 @@
   background: var(--turksat-main) !important;
   color: var(--white) !important;
   padding: 0.8rem;
-  border: 1px;
+  border: 5px !important;
   border-radius: 100px;
-  border-color: var(--blue-dark);
+  border-color: var(--blue-dark) !important;
   font-size: 1.1rem;
   cursor: pointer;
   height: 35px;

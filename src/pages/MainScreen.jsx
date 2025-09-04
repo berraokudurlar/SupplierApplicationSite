@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import ReCAPTCHA from "react-google-recaptcha";
 
+import { Toast } from 'primereact/toast';
 import { InputText } from "primereact/inputtext";
 import { Password } from "primereact/password";
 import { Button } from "primereact/button";
@@ -12,6 +13,7 @@ import "primereact/resources/themes/saga-blue/theme.css";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
 
+
 import Header from "../components/Header";
 import turksatLogo from "../assets/photos/turksatlogo.png";
 
@@ -20,20 +22,48 @@ export default function MainScreen() {
   const { t } = useTranslation("", { keyPrefix: "main_screen" });
   const [captchaValue, setCaptchaValue] = useState(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const toast = useRef(null); 
+  const recaptchaRef = useRef(null);
+
   const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
 
   const onFinish = (values) => {
-    if (!captchaValue) {
-      alert("Please complete the CAPTCHA");
+    if (!values.email || !values.password) {
+      toast.current.show({
+        severity: 'error',
+        summary: t("missing_email_password"),
+        life: 3000
+      });
       return;
     }
-    console.log("Form values:", values, "Captcha:", captchaValue);
+
+    if (!captchaValue) {
+      toast.current.show({
+        severity: 'error',
+        summary: t("captcha_not_done"),
+        life: 3000
+      });
+      return;
+
+    }
+
+    toast.current.show({
+      severity: 'success',
+      summary: t("success_message"), 
+      life: 3000
+    });
+
   };
 
   return (
     <div className="main-background">
+
+      <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+
+      <Toast ref={toast} />
+      
       <div className="login-box" style={{ height: "100%" }}>
-        <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+       
 
         <Splitter style={{ height: "100%", background: "transparent" }} stateStorage="local">
 
@@ -115,8 +145,12 @@ export default function MainScreen() {
                 {/* CAPTCHA */}
                 <div className="captcha-container" style={{ marginTop: "1rem" }}>
                   <ReCAPTCHA
+                    ref={recaptchaRef}
                     sitekey="6LcXl7ErAAAAAA03pTGms34aop_luxwYl7r0P_0M"
                     onChange={(value) => setCaptchaValue(value)}
+
+                    /* 
+                    onChange={handleRecaptcha} */
                   />
                 </div>
               </form>

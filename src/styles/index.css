@@ -91,6 +91,7 @@ p {  /* should be somewhere else */
   justify-content: center;
   align-items: center;
   font-family: var(--font-sohogothic);
+  position: relative;
 }
 
 

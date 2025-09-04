@@ -2,20 +2,16 @@
   "main_screen": {
   "login_title": "Tedarikçi Girişi",
   "email": "E-posta",
-  "email-invalid": "Geçersiz e-mail",
   "password": "Şifre",
   "email_placeholder": "E-postanızı girin",
   "password_placeholder": "Şifrenizi girin",
   "login_btn": "Giriş Yap",
+  "missing_email_password": "Lütfen e-posta ve şifre alanlarını doldurunuz.",
+  "captcha_not_done": "Lütfen reCAPTCHA'yı tamamlayarak robot olmadığınızı kanıtlayınız.",
   "forgot_password": "Şifremi Unuttum",
   "become_supplier": "Tedarikçi Ol",
   "faq": "Sıkça Sorulan Sorular",
   "contact_info": "Mevcut tedarikçilerimizin tys@turksat.com.tr adresinden mail ile kullanıcı adı ve parola talep etmeleri gerekmektedir.\n\nSon görüş ve önerileriniz için tys@turksat.com.tr adresine mail gönderebilirsiniz."
-  },
-
-  "recaptcha": {
-    "instruction": "Lütfen insan olduğunuzu doğrulamak için reCAPTCHA'yı tamamlayın.",
-    "error": "Devam etmek için reCAPTCHA doğrulaması gereklidir."
   },
 
   "file_submission": {
@@ -82,8 +78,9 @@
     "enter_email": "E-postanızı girin",
     "verify_code": "Kodunuzu doğrulayın",
     "success": "Kayıt",
-    "send_verification_email": "Doğrulama e-postasını gönder"
-
+    "send_verification_email": "Doğrulama e-postasını gönder","missing_email_password": "Lütfen e-posta ve şifre alanlarını doldurunuz.",
+    "captcha_not_done": "Lütfen reCAPTCHA'yı tamamlayarak robot olmadığınızı kanıtlayınız."
+    
   },
 
   "forgot_password": {
@@ -98,6 +95,7 @@
     "new_password": "Yeni Şifre",
     "reset_password": "Şifreni sıfırla"
   
-  }
+  },
+    "upload_file": "Dosya yükle"
 
 }

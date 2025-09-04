@@ -3,19 +3,15 @@
   "login_title": "Supplier Login",
   "email": "E-mail",
   "password": "Password",
-  "email-invalid": "Invaild e-mail",
   "email_placeholder": "Enter your e-mail",
   "password_placeholder": "Enter your password",
   "login_btn": "Login",
+  "missing_email_password": "Please fill out both the e-mail and password sections.",
+  "captcha_not_done": "Please complete the reCAPTCHA to prove that you are not a robot.",
   "forgot_password": "Forgot Password",
   "become_supplier": "Become a Supplier",
   "faq": "Frequently Asked Questions",
   "contact_info": "Our current suppliers must request username and password via email to tys@turksat.com.tr.\n\nFor final opinions and suggestions, you can also send an email to tys@turksat.com.tr."
-  },
-
-  "recaptcha": {
-      "instruction": "Please complete the reCAPTCHA to verify you are human.",
-      "error": "reCAPTCHA verification is required to continue."  
   },
 
   "file_submission": {
@@ -87,8 +83,9 @@
     "enter_email": "Enter e-mail",
     "verify_code": "Verify code",
     "success": "Register",
-    "send_verification_email": "Send verification e-mail"
-
+    "send_verification_email": "Send verification e-mail",
+    "missing_email_password": "Please fill out both the e-mail and password sections.",
+    "captcha_not_done": "Please complete the reCAPTCHA to prove that you are not a robot."
   },
 
   "forgot_password": {
@@ -102,6 +99,6 @@
     "reset_password_title": "Reset Password",
     "new_password": "New Password",
     "reset_password": "Reset your password"
-  }
-
+  },
+    "upload_file": "Upload file"
 }

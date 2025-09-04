@@ -80,7 +80,7 @@
 }
 
 .form-row .p-inputtext,
-.form-row .p-password,
+.form-row .p-password-toggle-mask,
 .form-row .p-dropdown,
 .form-row .p-checkbox,
 .form-row .p-inputnumber {
@@ -98,6 +98,13 @@
 .form-row .p-inputnumber:focus {
   border-color: var(--turksat-main) !important;
   box-shadow: 0 0 4px rgb(0, 133, 118, 0.4) !important;
+}
+
+.register-password .p-password-toggle-mask{
+  flex: 1 !important;  
+  border-radius: 8px;
+  font-size: 0.9rem !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .select-input {
@@ -122,6 +129,19 @@
   color: red;           /* classic red for required */   /* make it stand out */
   margin-left: 0.1rem;  /* small spacing from label text */
   font-size: 1rem;      /* match label font size */
+}
+
+.selector {
+  width: 200px !important;
+  height: 35px;
+  font-size: 0.9rem !important;
+  border-radius: 8px !important;
+  border-color: var(--turksat-main) !important;
+}
+
+.selector:focus {
+  border-color: var(--turksat-main) !important;
+  box-shadow: 0 0 4px rgb(0, 133, 118, 0.4) !important;
 }
 
 /* For mobile devices */

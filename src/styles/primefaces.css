@@ -3,54 +3,18 @@
 @tailwind utilities;
                         
 
-
-/* NOT GROUPED YET*/
-
-/* form.css */
-.ant-form-item {
-  margin-bottom: 1.5rem; /* more breathing room between inputs */
-  gap: 1rem;
-}
-
-/* Makes labels left aligned */
-.ant-form-item-label {
-  text-align: left;
-  padding-right: 1rem;
-}
-
-/* Add padding so inputs don’t touch edges */
-.ant-form-item-control {
-  padding-left: 0.5rem;
-}
-
-
-
-.ant-pane
-.ant-checkbox-wrapper,
-.info-column,
-.login-column,
-.ant-layout-sider,
-.ant-form-item-label > label,
-.ant-form-item-control-input input,
-.ant-form-item-control-input textarea,
-.ant-form-item-sele,
-.ant-select-selector,
-.ant-btn,
-.ant-checkbox-wrapper { /* all the ant designs... should be somewhere else again. */
+.ant-select-selector { /* all the ant designs... should be somewhere else again. */
   font-family: var(--font-sohogothic);
 }
 
-.panel { /* ant */
-  font-family: var(--font-sohogothic) !important;
-}
- 
-.ant-form-item { /* ant */
-  margin-bottom: 1.5rem;
-  font-weight: 300px;
-}
+.p-toast {
 
+}
+.p-toast-message {
+  font-family: var(--font-sohogothic);
+  text-align: center;
+}
 /* Steps */
-
 
 .p-steps {
   margin-bottom: 1rem;
@@ -97,6 +61,49 @@
   height: 42x !important;
 }
 
+.p-button:active,
+.p-button.p-button-active {
+  background-color: initial; 
+  border-color: initial;
+  box-shadow: none !important;
+}
+
+.p-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
 
+.p-field-checkbox {
+  margin-top: 3rem !important;
+}
 
+
+.p-field-checkbox .required {
+  color: red;
+}
+
+.p-checkbox .p-checkbox-box:focus {
+ border-color: var(--turksat-main) !important;
+}
+
+
+.p-checkbox.p-checkbox-checked .p-checkbox-box {
+  background-color: var(--turksat-main) !important;
+  border-color: var(--blue-dark) !important;
+}
+
+.p-fileupload-choose {
+  font-family: var(--font-sohogothic); 
+  font-size: 0.9rem;
+  color: var(--white);                 
+  background-color: var(--turksat-main); 
+  height: 35px;
+  border: none;                       
+  cursor: pointer;                     
+}
+
+
+.p-fileupload-choose:hover {
+  background-color: var(--blue-dark); 
+}

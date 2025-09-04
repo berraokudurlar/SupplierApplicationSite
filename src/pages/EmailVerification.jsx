@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useTranslation } from "react-i18next";
 
+import { Toast } from 'primereact/toast';
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { Steps } from "primereact/steps";
 
 import Header from "../components/Header";
 import GoHome from "../components/GoHome";
+
 
 import "primeicons/primeicons.css";
 
@@ -19,6 +21,12 @@ export default function EmailVerification() {
   const [verificationCode, setVerificationCode] = useState("");
   const [captchaValue, setCaptchaValue] = useState(null);
   const [loading, setLoading] = useState(false);
+  const toast = useRef(null);
+ 
+
+  const showToast = (severity, summary, detail) => {
+    toast.current.show({ severity, summary, detail, life: 3000 });
+  };
 
   const itemRenderer = (item, itemIndex) => {
     const isActive = step === itemIndex;
@@ -46,36 +54,53 @@ export default function EmailVerification() {
 
   const sendVerificationEmail = async () => {
     if (!email) {
-      alert(t("email") + " is required");
+      showToast("warn", t("email"), t("email_required"));
       return;
     }
     if (!captchaValue) {
-      alert("Please verify CAPTCHA");
+      showToast("warn", t("captcha"), t("captcha_not_done"));
       return;
     }
 
     setLoading(true);
-    await new Promise((res) => setTimeout(res, 1000));
-    setLoading(false);
-    alert("Verification email sent");
-    setStep(1);
+    try {
+      await new Promise((res) => setTimeout(res, 1000));
+      showToast("success", t("verification_email"), t("sent"));
+      setStep(1);
+    } catch (err) {
+      console.error(err);
+      showToast("error", t("verification_email"), t("send_error"));
+    } finally {
+      setLoading(false);
+    }
   };
 
   const verifyCode = async () => {
     if (!verificationCode) {
-      alert("Verification code required");
+      showToast("warn", t("verification_code"), t("code_required"));
       return;
     }
 
     setLoading(true);
-    await new Promise((res) => setTimeout(res, 1000));
-    setLoading(false);
-    setStep(2);
+    try {
+      await new Promise((res) => setTimeout(res, 1000));
+      showToast("success", t("verification_code"), t("verified"));
+      setStep(2);
+    } catch (err) {
+      console.error(err);
+      showToast("error", t("verification_code"), t("verify_error"));
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="main-background">
+
+      <Toast ref={toast} />
+
       <GoHome />
+
       <Header isDarkMode={false} toggleDarkMode={() => {}} />
 
       <div className="ev-box">
@@ -93,7 +118,7 @@ export default function EmailVerification() {
                 <InputText value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div className="captcha-container">
-                <ReCAPTCHA sitekey="YOUR_SITE_KEY" onChange={(v) => setCaptchaValue(v)} />
+                <ReCAPTCHA sitekey="6LcXl7ErAAAAAA03pTGms34aop_luxwYl7r0P_0M" onChange={(v) => setCaptchaValue(v)} />
               </div>
               <div className="ev-button-row">
                 <Button label={t("send_verification_email")} className="ev-next-btn" loading={loading} onClick={sendVerificationEmail} />

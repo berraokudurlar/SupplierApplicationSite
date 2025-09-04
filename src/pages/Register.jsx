@@ -1,7 +1,8 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import ReCAPTCHA from "react-google-recaptcha";
 
+import { Toast } from "primereact/toast";
 import { Steps } from "primereact/steps";
 import { InputText } from "primereact/inputtext";
 import { Password } from "primereact/password";
@@ -21,6 +22,7 @@ export default function Register() {
   const [stepIndex, setStepIndex] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const toast = useRef(null);
 
   const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
 
@@ -44,6 +46,7 @@ export default function Register() {
     phone: "",
     email: "",
     signatureFile: null,
+    poaFile: null,
     acceptTerms: false,
     integrityConfirmed: false,
     captchaValue: null,
@@ -89,10 +92,11 @@ export default function Register() {
         );
       case "files":
         return (
-        form.signatureFile && 
+        form.signatureFile &&
+        form.poaFile &&
         form.acceptTerms && 
-        form.integrityConfirmed &&
-        form.captchaValue
+        form.integrityConfirmed /*  &&
+        form.captchaValue */
         ) 
       default:
         return false;
@@ -102,64 +106,96 @@ export default function Register() {
   const next = () => stepValid && setStepIndex(stepIndex + 1);
   const back = () => setStepIndex(stepIndex - 1);
 
-  const handleSubmit = async () => {
-    if (!stepValid) return;
-    setSubmitting(true);
-    try {
-      const body = { ...form };
-      if (body.signatureFile instanceof File) body.signatureFile = null;
+const handleSubmit = async () => {
+  if (submitting) return;
+  setSubmitting(true);
 
-      const res = await fetch("http://localhost:8080/api/suppliers", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
+  try {
+    const formData = new FormData();
+
+    // Append all fields individually except files
+    for (const key in form) {
+      if (form[key] !== null && key !== "signatureFile" && key !== "poaFile") {
+        // Convert booleans to strings to ensure Spring interprets them correctly
+        if (typeof form[key] === "boolean") {
+          formData.append(key, form[key].toString());
+        } else {
+          formData.append(key, form[key]);
+        }
+      }
+    }
+
+    // Append files separately
+    if (form.signatureFile) formData.append("signatureFile", form.signatureFile);
+    if (form.poaFile) formData.append("poaFile", form.poaFile);
+
+    const res = await fetch("http://localhost:8080/api/suppliers", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!res.ok) {
+      const text = await res.text();
+      toast.current.show({
+        severity: 'error',
+        summary: t("registration.messages.submit_error"),
+        detail: text,
+        life: 5000
+      });
+    } else {
+      toast.current.show({
+        severity: 'success',
+        summary: t("registration.messages.submit_success"),
+        life: 5000
       });
 
-      if (!res.ok) {
-        const text = await res.text();
-        alert(t("registration.messages.submit_error") + ": " + text);
-      } else {
-        alert(t("registration.messages.submit_success"));
-        setForm({
-          newPassword: "",
-          repeatPassword: "",
-          companyName: "",
-          businessField: "",
-          companyType: "",
-          taxId: "",
-          taxOffice: "",
-          firstName: "",
-          lastName: "",
-          title: "",
-          phone: "",
-          email: "",
-          country: "",
-          province: "",
-          district: "",
-          address: "",
-          corporateMail: "",
-          corporateFax: "",
-          signatureFile: null,
-          acceptTerms: false,
-          integrityConfirmed: false,
-          captchaValue: null,
-        });
-        setStepIndex(0);
-      }
-    } catch (err) {
-      console.error(err);
-      alert(t("registration.messages.submit_error"));
-    } finally {
-      setSubmitting(false);
+      // Reset form
+      setForm({
+        newPassword: "",
+        repeatPassword: "",
+        companyName: "",
+        businessField: "",
+        companyType: "",
+        taxId: "",
+        taxOffice: "",
+        firstName: "",
+        lastName: "",
+        title: "",
+        phone: "",
+        email: "",
+        country: "",
+        province: "",
+        district: "",
+        address: "",
+        corporateMail: "",
+        corporateFax: "",
+        signatureFile: null,
+        poaFile: null,
+        acceptTerms: false,
+        integrityConfirmed: false,
+        captchaValue: null,
+      });
+
+      setStepIndex(0);
     }
-  };
+  } catch (err) {
+    console.error(err);
+    toast.current.show({
+      severity: 'error',
+      summary: t("registration.messages.submit_error"),
+      life: 5000
+    });
+  } finally {
+    setSubmitting(false);
+  }
+};
 
  const renderStepContent = () => {
   switch (steps[stepIndex].key) {
     case "company":
       return (
         <>
-          <h3>İlk girişiniz olduğu için parola oluşturmanız gerekmektedir.</h3>
+          <p>İlk girişiniz olduğu için parola oluşturmanız gerekmektedir.</p>
 
           <div className="form-row">
             <label>
@@ -170,6 +206,7 @@ export default function Register() {
               onChange={(e) => update({ newPassword: e.target.value })}
               toggleMask
               feedback={false}
+              className="register-password"
             />
           </div>
 
@@ -182,6 +219,7 @@ export default function Register() {
               onChange={(e) => update({ repeatPassword: e.target.value })}
               toggleMask
               feedback={false}
+              className="register-password"
             />
           </div>
 
@@ -207,13 +245,14 @@ export default function Register() {
             <label>
               {t("registration.labels.company_type")} <span className="required">*</span>
             </label>
-            <Select
+            <Select  
+              className="selector"
               value={form.companyType}
               onChange={(v) => update({ companyType: v })}
             >
-              <Option value="limited">{t("registration.labels.limited")}</Option>
-              <Option value="anonymous">{t("registration.labels.anonymous")}</Option>
-              <Option value="sole">{t("registration.labels.sole")}</Option>
+              <Select.Option value="limited">{t("registration.labels.limited")}</Select.Option>
+              <Select.Option value="anonymous">{t("registration.labels.anonymous")}</Select.Option>
+              <Select.Option value="sole">{t("registration.labels.sole")}</Select.Option>
             </Select>
           </div>
 
@@ -363,10 +402,24 @@ export default function Register() {
             </label>
             <UploadFiles
               onFileChange={(file) => update({ signatureFile: file })}
+              partName="signatureFile"
             />
           </div>
 
           <div className="form-row">
+            <label>
+              {t("registration.labels.power_of_attorney")} <span className="required">*</span>
+            </label>
+            <UploadFiles
+              onFileChange={(file) => update({ poaFile: file  })}
+              partName="poaFile"
+            />
+          </div>
+
+
+
+          <div className="p-field-checkbox" style={{ display: 'flex', flexDirection: 'column', gap: '2rem'  }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <Checkbox
               inputId="integrity"
               checked={form.integrityConfirmed}
@@ -375,9 +428,8 @@ export default function Register() {
             <label htmlFor="integrity">
               {t("registration.information.integrity")} <span className="required">*</span>
             </label>
-          </div>
-
-          <div className="form-row">
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <Checkbox
               inputId="terms"
               checked={form.acceptTerms}
@@ -386,7 +438,10 @@ export default function Register() {
             <label htmlFor="terms">
               {t("registration.information.terms")} <span className="required">*</span>
             </label>
+            </div>
+
           </div>
+
 
           <div className="captcha-container">
             <p>{t("recaptcha.instruction")}</p>
@@ -399,7 +454,7 @@ export default function Register() {
       );
 
     default:
-      return null;
+    return null;
   }
 };
 
@@ -408,10 +463,12 @@ export default function Register() {
     <div className="main-background">
 
       <GoHome />
+       <Toast ref={toast} />
 
       <div className="register-container">
 
         <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+
         <h2>{t("registration.title")}</h2>
 
         {/* Steps */}
