@@ -1,3 +1,7 @@
+# TEDARİKÇİ BAŞVURU SİSTEMİ READ.ME
+
+```
+Data Structure of React:
 berr/
 ├─ public/
 │  └─ vite.svg
@@ -17,6 +21,15 @@ berr/
 │  │  ├─ ForgotPassword.jsx
 │  │  ├─ MainMenu.jsx
 │  │  └─ Register.jsx
+│  ├─ styles/
+│  │  ├─ buttons.css
+│  │  ├─ emailverification.css
+│  │  ├─ forgotpassword.css
+│  │  ├─ index.css
+│  │  ├─ mainscreen.css
+│  │  ├─ primefaces.css
+│  │  ├─ register.css
+│  │  └─ websiteheader.css
 │  ├─ utils/
 │  │  └─ api.js
 │  ├─ App.jsx
@@ -33,9 +46,7 @@ berr/
 └─ vite.config.js
 
 
-
-
-
+```
 
 
 # React + Vite
