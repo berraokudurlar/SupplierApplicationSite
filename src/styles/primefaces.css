@@ -107,3 +107,7 @@
 .p-fileupload-choose:hover {
   background-color: var(--blue-dark); 
 }
+
+.p-toast-message ~ .p-toast-message {
+  display: none; /* hide all after the first */
+}
