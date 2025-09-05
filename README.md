@@ -1,7 +1,7 @@
 # TEDARİKÇİ BAŞVURU SİSTEMİ READ.ME
 
+## React Kısmının Yapısı
 ```
-Data Structure of React:
 berr/
 ├─ public/
 │  └─ vite.svg
@@ -44,10 +44,14 @@ berr/
 ├─ README.md
 ├─ tailwind.config.js
 └─ vite.config.js
-
-
 ```
 
+## Özellikler
+
+Tedarikçi Başvuru Sistemi
+
+
+## Expanding the ESLint configuration
 
 # React + Vite
 
