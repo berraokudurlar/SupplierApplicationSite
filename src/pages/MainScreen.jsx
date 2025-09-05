@@ -101,11 +101,15 @@ export default function MainScreen() {
                 }}
               >
                 {/* Email */}
-                <div className="group-input" style={{ marginBottom: "1rem", gap: "1rem" }}>
+                <div className="group-input" style={{ marginBottom: "1rem", gap: "1rem" }} autocomplete="off">
                   <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                     <i className="pi pi-envelope" style={{ fontSize: "1.2rem", color: "#21578A" }} />
                     <span style={{ color: "red" }}>*</span>
-                    <InputText name="email" placeholder={t("email_placeholder")} style={{ flex: 1 }} />
+                    <InputText 
+                    name="email" 
+                    placeholder={t("email_placeholder")}
+                    style={{ flex: 1 }} 
+                    autoComplete="off"/>
                   </div>
                 </div>
 
@@ -118,7 +122,8 @@ export default function MainScreen() {
                     placeholder={t("password_placeholder")} 
                     style={{ flex: 1 }} 
                     toggleMask
-                    feedback={false}/>
+                    feedback={false}
+                    autoComplete="off"/>
                   </div>
                 </div>
 
@@ -166,7 +171,7 @@ export default function MainScreen() {
           
           <SplitterPanel
             size={200}
-            minSize={200}
+            minSize={150}
             maxSize={200}
             className="left-panel"
             style={{

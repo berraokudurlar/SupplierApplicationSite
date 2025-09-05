@@ -1,6 +1,5 @@
-// src/components/PhoneCodePicker.jsx
+// src/components/PrimePhoneCodePicker.jsx
 import React from "react";
-import { Form } from "antd";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { useTranslation } from "react-i18next";
@@ -9,7 +8,12 @@ export function PhoneCodePicker({ value, onChange }) {
   const { t } = useTranslation();
 
   return (
-    <Form.Item label={t("registration.labels.phone")} required>
+    <div className="form-row">
+
+      <label htmlFor="phone" className="form-label">
+        {t("registration.labels.phone")} <span style={{ color: "red" }}>*</span>
+      </label>
+
       <PhoneInput
         country="tr"
         value={value}
@@ -17,8 +21,7 @@ export function PhoneCodePicker({ value, onChange }) {
         placeholder={t("registration.labels.phone")}
         inputClass="phone-input"
         buttonClass="phone-button"
-        dropdownClass="phone-dropdown"
-      />
-    </Form.Item>
+        dropdownClass="phone-dropdown"s      />
+    </div>
   );
 }

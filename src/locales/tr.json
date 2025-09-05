@@ -20,7 +20,7 @@
   },
 
 "registration": {
-    "title": "Tedarikçi Başvurusu",
+    "title": "Tedarikçi Başvuru Formu",
 
     "steps": {
       "company": "Firma Bilgileri",
@@ -91,13 +91,14 @@
     "send_verification_email": "Doğrulama e-postasını gönder",
     "missing_email_password": "Lütfen e-posta ve şifre alanlarını doldurunuz.",
     "captcha_not_done": "Lütfen reCAPTCHA'yı tamamlayarak robot olmadığınızı kanıtlayınız.",
-    "back":"Back",
+    "back":"Geri",
     "verification_success": "E-posta doğrulama başarılı. Ana sayfaya yönderiliyorsunuz..."
   },
 
   "forgot_password": {
     "title": "Şifremi Unuttum",
     "send_verification_code": "Doğrulama kodu gönder",
+    "informing_text": "Şifrenizi sıfırlayabilmek için e-posta adresini giriniz.",
     "email": "E-posta",
     "enter_email_text": "Lütfen aşağıdaki alana e-postanızı giriniz.",
     "email_required": "Devam etmek için e-postanızı giriniz.",

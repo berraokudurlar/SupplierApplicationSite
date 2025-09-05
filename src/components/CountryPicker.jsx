@@ -6,13 +6,11 @@ export function CountryPicker({ value, onChange }) {
   const options = useMemo(() => countryList().getData(), []);
 
   return (
-    <div className="form-row">
     <Select 
-      className="select-input"
+      className="selector"
       options={options}
       value={options.find((c) => c.value === value)}
       onChange={(c) => onChange(c.value)}
     />
-    </div>
   );
 }

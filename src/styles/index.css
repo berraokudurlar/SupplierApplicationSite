@@ -75,13 +75,6 @@ h2 {  /* done */
   color: var(--blue-dark);
   margin-bottom: 3rem;
   text-align: center;
-}
-
-p {  /* should be somewhere else */
-  font-family: var(--font-sohogothic);
-  font-weight: 400;
-  color: var(--turksat-second);
-}
 
 h3 {  /* done */
   font-family: var(--font-sohogothic);
@@ -89,6 +82,15 @@ h3 {  /* done */
   margin-top: 3rem;
   text-align: center;
 }
+
+}
+
+p {  /* should be somewhere else..? */
+  font-family: var(--font-sohogothic);
+  font-weight: 400;
+  color: var(--turksat-second);
+}
+
 
 /* ---------------- Shared Components ---------------- */
 
@@ -113,44 +115,4 @@ h3 {  /* done */
 .captcha-container iframe {
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Steps */ /* there is a problem between Register.jsx and Verification.jsx requiring different types*/
-
-.steps .ant-steps-item.ant-steps-item-active .ant-steps-item-icon {
-  background-color: var(--turksat-main) !important;
-  border-color: var(--turksat-main) !important;
-  color: var(--turksat-gray) !important;
-}
-
-.steps .ant-steps-item.ant-steps-item-finish .ant-steps-item-icon {
-  background-color: var(--blue-dark) !important;
-  border-color: var(--blue-dark) !important;
-}
-
-.steps .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon {
-  color: var(--white) !important;
-}
-
-.steps .ant-steps-item-tail::after {
-  background-color: var(--turksat-second) !important; 
-}
-
-.steps .ant-steps-item-finish .ant-steps-item-tail::after {
-  background-color: var(--turksat-main) !important; 
-}
-
-.steps .ant-steps-item-title {
-  color: var(--turksat-second) !important;
-  font-family: var(--font-sohogothic);
-  font-size: 0.95rem;
-  text-align: center;
-  line-height: 1.2;
-  white-space: normal;
-}
-
-.steps .ant-steps-item-description {
-  color: var(--turksat-second) !important;
-  font-size: 0.75rem;
-  line-height: 1.1;
 }

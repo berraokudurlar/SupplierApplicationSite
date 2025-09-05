@@ -11,7 +11,7 @@
   min-width:800px;
   max-width: 800px; 
   min-height: 700px; 
-  max-height: 900px; 
+  max-height: 950px; 
   margin: 100px auto 0 auto;
   padding: 3rem;
   border-radius: 14px;
@@ -68,6 +68,7 @@
 .form-row {
   display: flex;
   align-items: left;
+  margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
 
@@ -80,6 +81,7 @@
 }
 
 .form-row .p-inputtext,
+.form-row .p-password,
 .form-row .p-password-toggle-mask,
 .form-row .p-dropdown,
 .form-row .p-checkbox,
@@ -120,29 +122,60 @@
 }
 
 .password-wrapper {
-  flex: 1;             /* take available space */
-  min-width: 0;        /* important for flex items */
+  flex: 1 !important;             /* take available space */
 }
 
 /* Required asterisk */
 .form-row label .required {
-  color: red;           /* classic red for required */   /* make it stand out */
-  margin-left: 0.1rem;  /* small spacing from label text */
-  font-size: 1rem;      /* match label font size */
+  color: red;           
+  font-size: 1rem;   
 }
 
 .selector {
   width: 200px !important;
   height: 35px;
+  font-family: var(--font-sohogothic);
   font-size: 0.9rem !important;
+  font: var(--turksat-second);
+  font-weight: 400;
   border-radius: 8px !important;
   border-color: var(--turksat-main) !important;
+  
 }
 
 .selector:focus {
   border-color: var(--turksat-main) !important;
   box-shadow: 0 0 4px rgb(0, 133, 118, 0.4) !important;
 }
+
+.phone-input {
+  height: 38px !important;
+  text-align: left;
+  width: 250px !important;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-left: 6rem !important;
+}
+
+.phone-input:focus {
+  border-color: var(--turksat-main) !important;
+  box-shadow: 0 0 4px rgb(0, 133, 118, 0.4) !important;
+}
+
+.phone-button {
+  background-color: var(--white)!important;
+  border-right: 1px solid #ccc !important;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+  margin-left: 3.8rem !important;
+  height: 38px !important;
+}
+
+.phone-button:focus {
+  border-color: var(--turksat-main) !important;
+  box-shadow: 0 0 4px rgb(0, 133, 118, 0.4) !important;
+}
+
 
 /* For mobile devices */
 
@@ -159,3 +192,5 @@
     width: 100%;
   }
 }
+
+

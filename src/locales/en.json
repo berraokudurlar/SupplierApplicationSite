@@ -21,7 +21,7 @@
 
   "registration": {
 
-    "title": "Supplier Registration",
+    "title": "Supplier Registration Form",
 
     "steps": {
       "company": "Company Info",
@@ -103,7 +103,7 @@
     "title": "Forgot My Password",
     "send_verification_code": "Send verification code",
     "email": "E-mail",
-    "enter_email_text": "Please enter your e-mail.",
+    "informing_text": "Please enter your e-mail address to create a new password.",
     "enter_verification_code_title": "Enter the verification code",
     "verification_code":"Verification code was sent to your e-mail.",
     "code_required": "Please enter the verification code to proceed.",

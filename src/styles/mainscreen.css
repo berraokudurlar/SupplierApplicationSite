@@ -33,29 +33,55 @@
 
 /* ---------------- The e-mail and password inputs ---------------- */
 
-.input-group input[type="password"],
-.input-group input {
+.group-input input[type="password"],
+.group-input input {
   font-family: var(--font-sohogothic);
   width: 300px !important;
   padding: 0.7rem;
   border: 0.8px solid var(--turksat-gray);
   border-radius: 8px; 
   outline: none;
-  font-size: 0.8rem !important;
   background-color: var(--white);
   box-sizing: border-box;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.input-group .p-password {
-  width: 400px !important;
-}
-
-.input-group input[type="password"]:focus,
-.input-group input:focus {
+.group-input input[type="password"]:focus,
+.group-input input:focus {
   border-color: var(--turksat-main) !important;
   box-shadow: 0 0 4px rgb(0, 133, 118, 0.4) !important;
+
 }
+
+.group-input .p-inputtext {
+  font-family: var(--font-sohogothic);
+  width: 100%;
+  padding: 0.7rem;
+  border: 0.8px solid var(--turksat-gray);
+  border-radius: 8px; 
+  outline: none;
+  font-size: 0.9rem;
+  background-color: var(--white);
+  height: 35px !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.group-input .p-inputtext:focus {
+  border-color: var(--turksat-main) !important;
+  box-shadow: 0 0 4px rgb(0, 133, 118, 0.6) !important;
+}
+
+.p-password input:focus {
+  border-color: var(--turksat-main) !important;
+  box-shadow: 0 0 4px rgb(0, 133, 118, 0.6) !important;
+}
+
+.p-inputtext:hover,
+.p-password:hover {
+  border-color: var(--turksat-main) !important;
+}
+
+
 
 /* ---------------- Login and register buttons ---------------- */
 
@@ -152,33 +178,4 @@
   justify-content: center;
 }
 
-/* ---------------- The .groupinput .css ---------------- */
-
-.group-input .p-inputtext {
-  font-family: var(--font-sohogothic);
-  width: 100%;
-  padding: 0.7rem;
-  border: 0.8px solid var(--turksat-gray);
-  border-radius: 8px; 
-  outline: none;
-  font-size: 1rem;
-  background-color: var(--white);
-  height: 35px !important;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.group-input .p-inputtext:focus {
-  border-color: var(--turksat-main) !important;
-  box-shadow: 0 0 4px rgb(0, 133, 118, 0.6) !important;
-}
-
-.p-password input:focus {
-  border-color: var(--turksat-main) !important;
-  box-shadow: 0 0 4px rgb(0, 133, 118, 0.6) !important;
-}
-
-.p-inputtext:hover,
-.p-password:hover {
-  border-color: var(--turksat-main) !important;
-}
 

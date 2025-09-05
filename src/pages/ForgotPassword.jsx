@@ -103,6 +103,10 @@ export default function ForgotPassword() {
         {step === 0 && (
           <>
             <h2>{t("title")}</h2>
+
+            <h3>{t("informing_text")}</h3>
+
+            <div className="fp-input-row"></div>
             <div className="fp-input-row">
               <label>{t("email")}</label>
               <InputText 
@@ -123,7 +127,8 @@ export default function ForgotPassword() {
 
         {step === 1 && (
           <>
-            <h2>{t("enter_verification_code_title")}</h2>
+            <h2>{t("title")}</h2>
+            <h3>{t("enter_verification_code_title")}</h3>
             <div className="fp-input-row">
               <label>{t("verification_code")}</label>
               <InputText 
